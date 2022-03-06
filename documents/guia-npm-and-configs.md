@@ -24,3 +24,49 @@ ng new mfe-portal --create-application=false
 ---
 
 <br>
+
+## 2. Adicionando e configurando o Eslint para adicionar o app
+
+```sh
+# Adicionando eslint e incluindo no cli angular.json
+ng add @angular-eslint/schematics@13.1.0
+ng config cli.defaultCollection @angular-eslint/schematics
+```
+
+```sh
+## Criando .eslintrc.json root
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json", "e2e/tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {}
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    }
+  ]
+}
+```
+
+```sh
+## Gerando MFE app portal com eslint, routing e style
+ng g @angular-eslint/schematics:app portal --routing=true --strict=true --style=scss
+```
+
+<br>
+
+---
+
+<br>
