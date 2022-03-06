@@ -12,7 +12,7 @@
     "prettier-check": "npx prettier --check .",
     "test:ci": "ng test --no-watch --no-progress --code-coverage --browsers ChromeHeadlessNoSandbox",
     "pre-commit": "npx --no-install lint-staged && npm run lint",
-    "pre-push": "npx --no-install npm run test:ci",
+    "pre-push": "npm run test:ci",
     "postinstall": "npx husky install && chmod ug+x .husky/*",
     "commit": "git-cz",
     "release": "standard-version"

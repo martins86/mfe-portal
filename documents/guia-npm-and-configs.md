@@ -241,7 +241,7 @@ npx husky install
 # Adicionando scripts para husky no package.json
 npm set-script test:ci "ng test --no-watch --no-progress --code-coverage --browsers ChromeHeadlessNoSandbox"
 npm set-script pre-commit "npx --no-install lint-staged && npm run lint"
-npm set-script pre-push "npx --no-install npm run test:ci"
+npm set-script pre-push "npm run test:ci"
 npm set-script postinstall "npx husky install && chmod ug+x .husky/*"
 ```
 
