@@ -5,7 +5,8 @@
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
-    "allowImportExportEverywhere": true
+    "allowImportExportEverywhere": true,
+    "requireConfigFile": false
   },
   "overrides": [
     {
