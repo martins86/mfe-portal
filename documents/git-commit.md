@@ -56,6 +56,15 @@ feat(page/home): criando o roteamentento.
 
 <br>
 
+# Versionamento do App
+
+```sh
+# gerando uma nova release do portal
+npm run release
+```
+
+<br>
+
 # Extenções do VSCode
 
 - vscode conventional commits - [Link](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits)

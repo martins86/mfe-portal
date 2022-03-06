@@ -7,8 +7,7 @@
 > Após a instalação dos itens <br>
 >
 > 1. [Programas](./programs.md) <br>
-> 2. [Dependências Globais](./npm-global.md) <br>
-> <br>
+> 2. [Dependências Globais](./npm-global.md) <br> > <br>
 
 <br>
 
@@ -47,7 +46,8 @@ npm install eslint @babel/core @babel/eslint-parser --save-dev
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
-    "allowImportExportEverywhere": true
+    "allowImportExportEverywhere": true,
+    "requireConfigFile": false
   },
   "overrides": [
     {
@@ -90,9 +90,7 @@ build
 coverage
 node_modules
 dist
-documents
 .angular
-.vscode
 
 ```
 
@@ -251,6 +249,58 @@ npm set-script postinstall "npx husky install && chmod ug+x .husky/*"
 ## Configurando o Husky
 npx husky add .husky/pre-commit "npm run pre-commit"
 npx husky add .husky/pre-push "npm run pre-push"
+```
+
+<br>
+
+---
+
+<br>
+
+## 7. Adicionando e configurando o Commits
+
+```sh
+## Instalando o Commitizen no projeto.
+npm install commitizen --save-dev
+```
+
+```sh
+## Inicializando o configurador do changelog.
+commitizen init cz-conventional-changelog --save-dev --save-exact
+```
+
+```sh
+## Adicionando Commitlint
+npm add @commitlint/config-conventional @commitlint/cli --save-dev
+echo "module.exports = { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+```
+
+```sh
+## Adicionando os Script no package.json.
+npm set-script commit "git-cz"
+```
+
+```sh
+## Adicionando commmitlint
+npx husky add .husky/commit-msg 'npx --no -- commitlint --edit $1'
+```
+
+<br>
+
+---
+
+<br>
+
+## 8. Adicionando e configurando o Versionamento
+
+```sh
+## Instalando o Standard Version no projeto.
+npm install standard-version --save-dev
+```
+
+```sh
+## Adicionando os Script no package.json.
+npm set-script release "standard-version"
 ```
 
 <br>
