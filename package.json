@@ -3,19 +3,20 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --project=portal --port=5000 --host=0.0.0.0 --disable-host-check --open",
+    "build": "ng build --project=portal --base-href ./ --single-bundle=true --output-hashing=none --vendor-chunk=false --aot",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --code-coverage",
     "lint": "ng lint",
     "prettier-write": "npx prettier --write --ignore-unknown .",
     "prettier-check": "npx prettier --check .",
-    "test:ci": "ng test --no-watch --no-progress --code-coverage --browsers ChromeHeadlessNoSandbox",
+    "test:ci": "npm run test -- --no-watch --no-progress --browsers ChromeHeadlessNoSandbox",
     "pre-commit": "npx --no-install lint-staged && npm run lint",
     "pre-push": "npm run test:ci",
     "postinstall": "npx husky install && chmod ug+x .husky/*",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "test:dev": "npm run test -- --progress --browsers Chrome"
   },
   "private": true,
   "dependencies": {
