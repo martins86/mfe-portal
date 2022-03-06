@@ -230,3 +230,31 @@ module.exports = function (config) {
 ---
 
 <br>
+
+## 6. Adicionando e configurando o Husky
+
+```sh
+## Adicionando o Husky
+npm install husky --save-dev
+npx husky install
+```
+
+```sh
+# Adicionando scripts para husky no package.json
+npm set-script test:ci "ng test --no-watch --no-progress --code-coverage --browsers ChromeHeadlessNoSandbox"
+npm set-script pre-commit "npx --no-install lint-staged && npm run lint"
+npm set-script pre-push "npx --no-install npm run test:ci"
+npm set-script postinstall "npx husky install && chmod ug+x .husky/*"
+```
+
+```sh
+## Configurando o Husky
+npx husky add .husky/pre-commit "npm run pre-commit"
+npx husky add .husky/pre-push "npm run pre-push"
+```
+
+<br>
+
+---
+
+<br>
