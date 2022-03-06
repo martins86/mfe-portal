@@ -308,3 +308,20 @@ npm set-script release "standard-version"
 ---
 
 <br>
+
+## 9. Adicionando e editando alguns Scripts
+
+```sh
+## Scripts no package.json
+npm set-script build "ng build --project=portal --base-href ./ --single-bundle=true --output-hashing=none --vendor-chunk=false --aot"
+npm set-script start "ng serve --project=portal --port=5000 --host=0.0.0.0 --disable-host-check --open"
+npm set-script test "ng test --code-coverage"
+npm set-script test:dev "npm run test -- --progress --browsers Chrome"
+npm set-script test:ci "npm run test -- --no-watch --no-progress --browsers ChromeHeadlessNoSandbox"
+```
+
+<br>
+
+---
+
+<br>
