@@ -1,0 +1,32 @@
+# Portas e Ações
+ports:
+  - port: 5000
+    onOpen: open-browser
+    visibility: public
+
+# Tarefas na Inicialização
+tasks:
+  - before: export NG_CLI_ANALYTICS=ci
+  - init: echo n | npm i -g @angular/cli@13.2.5
+  - command: >
+      echo n | npm i  npm i -g @angular/cli@13.2.5 &&
+      npm install -g commitizen standard-version &&
+      npm install &&
+      sleep 6 &&
+      npm run start
+
+# Github
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: true
+    addComment: true
+    addBadge: false
+
+# Adicionando extenções do vscode
+vscode:
+  extensions:
+    - esbenp.prettier-vscode
