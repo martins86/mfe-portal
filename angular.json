@@ -33,9 +33,7 @@
               "projects/portal/src/favicon.ico",
               "projects/portal/src/assets"
             ],
-            "styles": [
-              "projects/portal/src/styles.scss"
-            ],
+            "styles": ["projects/portal/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -101,9 +99,7 @@
               "projects/portal/src/favicon.ico",
               "projects/portal/src/assets"
             ],
-            "styles": [
-              "projects/portal/src/styles.scss"
-            ],
+            "styles": ["projects/portal/src/styles.scss"],
             "scripts": []
           }
         },
