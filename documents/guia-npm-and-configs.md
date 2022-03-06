@@ -111,3 +111,27 @@ npm set-script prettier-check "npx prettier --check ."
 ---
 
 <br>
+
+## 4. Adicionando e configurando o Lint-staged
+
+```sh
+## Criando o .lintstagedrc.json
+{
+  "*.{js,ts,md,html,scss,json}": [
+    "npm run prettier-write",
+    "git add",
+    "npm run prettier-check"
+  ]
+}
+```
+
+```sh
+## Adicionando o Lint Staged
+npm install lint-staged --save-dev
+```
+
+<br>
+
+---
+
+<br>
