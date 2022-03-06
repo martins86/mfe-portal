@@ -1,6 +1,6 @@
-import getBaseKarmaConfig from './../../karma.root.conf'
+var getBaseKarmaConfig = require('./../../karma.root.conf')
 
-export default function (config) {
+module.exports = function (config) {
   var baseRootConfig = getBaseKarmaConfig()
   config.set({
     ...baseRootConfig,
