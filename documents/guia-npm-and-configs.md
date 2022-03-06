@@ -38,6 +38,12 @@ ng config cli.defaultCollection @angular-eslint/schematics
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
   "overrides": [
     {
       "files": ["*.ts"],

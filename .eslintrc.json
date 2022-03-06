@@ -1,8 +1,11 @@
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
+  "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 2020
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
   },
   "overrides": [
     {
