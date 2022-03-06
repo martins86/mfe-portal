@@ -9,7 +9,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "prettier-write": "npx prettier --write --ignore-unknown .",
-    "prettier-check": "npx prettier --check ."
+    "prettier-check": "npx prettier --check .",
+    "test:ci": "ng test --no-watch --no-progress --code-coverage --browsers ChromeHeadlessNoSandbox",
+    "pre-commit": "npx --no-install lint-staged && npm run lint",
+    "pre-push": "npx --no-install npm run test:ci",
+    "postinstall": "npx husky install && chmod ug+x .husky/*"
   },
   "private": true,
   "dependencies": {
