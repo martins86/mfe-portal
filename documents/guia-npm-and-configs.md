@@ -141,3 +141,87 @@ npm install lint-staged --save-dev
 ---
 
 <br>
+
+## 5. Configurando o Karma
+
+```sh
+## Adicionando o karma.root.conf.js
+module.exports = function () {
+  return {
+    basePath: '',
+    frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage'),
+      require('@angular-devkit/build-angular/plugins/karma'),
+    ],
+    client: {
+      jasmine: {},
+      clearContext: false,
+    },
+    jasmineHtmlReporter: {
+      suppressAll: true,
+    },
+    thresholds: {
+      emitWarning: false,
+      global: {
+        statements: 80,
+        lines: 80,
+        branches: 80,
+        functions: 80,
+      },
+      each: {
+        statements: 80,
+        lines: 80,
+        branches: 80,
+        functions: 80,
+      },
+    },
+    reporters: ['progress', 'coverage', 'kjhtml'],
+    port: 9876,
+    colors: true,
+    autoWatch: true,
+    browsers: ['Chrome'],
+    singleRun: false,
+    restartOnFileChange: true,
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--headless', '--no-sandbox', '--remote-debugging-port=9222'],
+      },
+    },
+    browserDisconnectTolerance: 8,
+    browserNoActivityTimeout: 60000,
+    browserDisconnectTimeout: 20000,
+    captureTimeout: 210000,
+  };
+};
+
+```
+
+```sh
+## Editando o karma.conf.js
+var getBaseKarmaConfig = require('./../../karma.root.conf');
+
+module.exports = function (config) {
+  var baseRootConfig = getBaseKarmaConfig();
+  config.set({
+    ...baseRootConfig,
+    coverageReporter: {
+      dir: require('path').join(__dirname, '../../coverage/shared-lib'),
+      subdir: '.',
+      reporters: [{ type: 'html' }, { type: 'text-summary' }, { type: 'lcov' }],
+      fixWebpackSourcePaths: true,
+    },
+    logLevel: config.LOG_INFO,
+  });
+};
+```
+
+<br>
+
+---
+
+<br>
