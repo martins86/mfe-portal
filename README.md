@@ -1,27 +1,32 @@
-# MfePortal
+# Micro Front-end: Portal &nbsp; | &nbsp; ![GitHub last commit][commit-img]
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+<!-- [![Build Status](https://app.travis-ci.com/martins86/mfe-portal.svg?token=ifxsnzyowyXksHqjSXVp&branch=master)](https://app.travis-ci.com/martins86/mfe-portal)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=martins86_mfe-portal&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=martins86_mfe-portal) -->
 
-## Development server
+![GitHub package.json version][version-img]
+![npm][npm-img]
+![node-current](https://img.shields.io/node/v/latest-version)
+![GitHub top language][language-img]
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<br>
+<br>
+<br>
+<br>
+<br>
 
-## Code scaffolding
+# Licença de uso &nbsp; | &nbsp; [![GitHub license][license-img]][license-url]
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+mfe-portal is licensed under [MIT licensed](./LICENSE).
 
-## Build
+<!-- Markdown link & images -->
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[open-gitpod-img]: https://gitpod.io/button/open-in-gitpod.svg
+[open-gitpod-url]: https://www.gitpod.io/#https://github.com/martins86/mfe-portal
+[version-img]: https://img.shields.io/github/package-json/v/martins86/mfe-portal
+[language-img]: https://img.shields.io/github/languages/top/martins86/mfe-portal
+[license-img]: https://img.shields.io/github/license/martins86/mfe-portal
+[license-url]: https://github.com/martins86/nodejs-api-js-clean-code/blob/main/LICENSE
+[travis-img]: https://app.travis-ci.com/martins86/mfe-portal.svg?branch=main
+[travis-url]: https://app.travis-ci.com/martins86/mfe-portal
+[commit-img]: https://img.shields.io/github/last-commit/martins86/mfe-portal
+[npm-img]: https://img.shields.io/npm/v/npm
