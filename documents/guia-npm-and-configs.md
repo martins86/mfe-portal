@@ -70,3 +70,44 @@ ng g @angular-eslint/schematics:app portal --routing=true --strict=true --style=
 ---
 
 <br>
+
+## 3. Adicionando e configurando o Prettier
+
+```sh
+# Criando o .prettierignore
+build
+coverage
+node_modules
+dist
+documents
+.angular
+.vscode
+
+```
+
+```sh
+# Criando o .prettierrc.json
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true
+}
+```
+
+```sh
+## Adicionando o Prettier
+npm install prettier --save-dev --save-exact
+```
+
+```sh
+## Adicionando scripts do prettier no package.json
+npm set-script prettier-write "npx prettier --write --ignore-unknown ."
+npm set-script prettier-check "npx prettier --check ."
+```
+
+<br>
+
+---
+
+<br>
