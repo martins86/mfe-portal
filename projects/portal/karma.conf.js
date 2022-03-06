@@ -1,7 +1,7 @@
-import getBaseKarmaConfig from './../../karma.root.conf';
+import getBaseKarmaConfig from './../../karma.root.conf'
 
 export default function (config) {
-  var baseRootConfig = getBaseKarmaConfig();
+  var baseRootConfig = getBaseKarmaConfig()
   config.set({
     ...baseRootConfig,
     coverageReporter: {
@@ -11,5 +11,5 @@ export default function (config) {
       fixWebpackSourcePaths: true,
     },
     logLevel: config.LOG_INFO,
-  });
-};
+  })
+}

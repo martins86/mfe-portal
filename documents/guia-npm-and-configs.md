@@ -34,11 +34,16 @@ ng config cli.defaultCollection @angular-eslint/schematics
 ```
 
 ```sh
+# Adicionando babel/eslint-parser
+npm install eslint @babel/core @babel/eslint-parser --save-dev
+```
+
+```sh
 ## Criando .eslintrc.json root
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
