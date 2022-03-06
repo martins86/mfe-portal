@@ -325,3 +325,27 @@ npm set-script test:ci "npm run test -- --no-watch --no-progress --browsers Chro
 ---
 
 <br>
+
+## 10. Adicionando o Angular Material
+
+```sh
+ng add @angular/material@13.2.5 --project=portal
+```
+
+<br>
+
+---
+
+<br>
+
+## 11. Adicionando o Bootstrap
+
+```sh
+npm install bootstrap
+```
+
+<br>
+
+---
+
+<br>
