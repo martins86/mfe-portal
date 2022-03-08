@@ -2,7 +2,6 @@
 
 - Adicionar e configurar:
 
-  - TravisCI
   - SonarCloud
   - GitHub Pages
 
