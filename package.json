@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --project=portal --port=5000 --host=0.0.0.0 --disable-host-check --open",
-    "build": "ng build --project=portal --base-href ./ --single-bundle=true --output-hashing=none --vendor-chunk=false --aot",
+    "build": "ng build --project=portal --base-href ./ --output-hashing=none --vendor-chunk=false --aot",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage",
     "lint": "ng lint",
