@@ -7,8 +7,6 @@ node_js:
 
 dist: trusty
 
-sudo: required
-
 addons:
   chrome: stable
 
@@ -47,7 +45,6 @@ jobs:
 
 deploy:
   provider: pages
-  skip_cleanup: true
   github_token: $GITHUB_TOKEN_TRAVIS
   local_dir: dist/portal
   on:
