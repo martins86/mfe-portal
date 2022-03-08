@@ -1,0 +1,54 @@
+language: node_js
+
+os: linux
+
+node_js:
+  - node
+
+dist: trusty
+
+sudo: required
+
+addons:
+  chrome: stable
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+install:
+  - npm install -g @angular/cli@13.2.5
+  - npm install
+
+before_install:
+  - export DISPLAY=:99.0
+  - export NODE_OPTIONS=--openssl-legacy-provider
+  - sh -e /etc/init.d/xvfb start
+
+script:
+  - npm run lint
+  - npm run test:ci
+  - npm run build
+  - cd dist/portal
+  - cp index.html 404.html
+
+branches:
+  only:
+    - master
+
+env:
+  - EMBER_VERSION=release
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - env: EMBER_VERSION=release
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN_TRAVIS
+  local_dir: dist/portal
+  on:
+    branch: master
