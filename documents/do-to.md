@@ -1,9 +1,7 @@
 # Coisas a Fazer no projeto
 
 - Adicionar e configurar:
-
   - SonarCloud
-  - GitHub Pages
 
 <br>
 
