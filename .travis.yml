@@ -5,10 +5,14 @@ os: linux
 node_js:
   - node
 
-dist: trusty
+dist: xenial
 
 addons:
   chrome: stable
+  sonarcloud:
+    organization: 'martins86'
+    token:
+      secure: $SONAR_TOKEN
 
 cache:
   yarn: true
@@ -27,6 +31,7 @@ before_install:
 script:
   - npm run lint
   - npm run test:ci
+  - sonar-scanner
   - npm run build
   - cd dist/portal
   - cp index.html 404.html
