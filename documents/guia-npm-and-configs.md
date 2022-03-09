@@ -7,7 +7,7 @@
 > Após a instalação dos itens <br>
 >
 > 1. [Programas](./programs.md) <br>
-> 2. [Dependências Globais](./npm-global.md) <br> > <br>
+> 2. [Dependências Globais](./npm-global.md)
 
 <br>
 
@@ -213,7 +213,7 @@ module.exports = function (config) {
   config.set({
     ...baseRootConfig,
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/shared-lib'),
+      dir: require('path').join(__dirname, '../../coverage'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }, { type: 'lcov' }],
       fixWebpackSourcePaths: true,
@@ -342,6 +342,126 @@ ng add @angular/material@13.2.5 --project=portal
 
 ```sh
 npm install bootstrap
+```
+
+<br>
+
+---
+
+<br>
+
+## 12. Adicionando e configurando o Travis CI
+
+```sh
+## Adicionando o Travis CI
+# Criando o Token GITHUB_TOKEN_TRAVIS
+https://github.com/settings/tokens
+
+# martins86 / mfe-portal
+https://app.travis-ci.com/martins86/mfe-portal
+
+# Criando o .travis.yml
+language: node_js
+
+os: linux
+
+node_js:
+  - node
+
+dist: xenial
+
+addons:
+  chrome: stable
+  sonarcloud:
+    organization: 'martins86'
+    token:
+      secure: $SONAR_TOKEN
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+install:
+  - npm install -g @angular/cli@13.2.5
+  - npm install
+
+before_install:
+  - export DISPLAY=:99.0
+  - export NODE_OPTIONS=--openssl-legacy-provider
+  - sh -e /etc/init.d/xvfb start
+
+script:
+  - npm run lint
+  - npm run test:ci
+  - sonar-scanner
+  - npm run build
+  - cd dist/portal
+  - cp index.html 404.html
+
+branches:
+  only:
+    - master
+
+env:
+  - EMBER_VERSION=release
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - env: EMBER_VERSION=release
+
+deploy:
+  provider: pages
+  github_token: $GITHUB_TOKEN_TRAVIS
+  local_dir: dist/portal
+  on:
+    branch: master
+
+```
+
+<br>
+
+---
+
+<br>
+
+## 13. Adicionando e configurando o SonarCloud
+
+```sh
+## Acesse o https://sonarcloud.io entre com sua conta do github para acesso aos projetos
+https://sonarcloud.io
+
+# Crie a empresa e adicione o repositório desejado, logo após ele executara um scan, finalizando o scan acesse o information para obter as keys do projeto
+https://sonarcloud.io/project/information?id=martins86_mfe-portal
+```
+
+```sh
+# Adicionando sonar-project.properties
+sonar.host.url=https://sonarcloud.io
+sonar.organization=martins86
+sonar.projectVersion=1.0
+sonar.projectName=martins86_mfe-portal
+sonar.projectKey=martins86_mfe-portal
+
+sonar.sourceEncoding=UTF-8
+sonar.sources=projects
+
+sonar.exclusions=**/node_modules/**,**/*.js
+sonar.coverage.exclusions=**/*.js,src/main.ts,src/polyfills.ts,**/*environment*.ts,**/*module.ts
+
+sonar.tests=app
+sonar.test.inclusions=**/*.spec.ts,**/*test.ts
+
+sonar.typescript.tsconfigPath=tsconfig.json
+
+sonar.javascript.lcov.reportPaths=coverage/lcov.info
+```
+
+```sh
+## depois de configurar o sonar e instalar o scanner
+## gerar token no sonar e colocar ele no travis tbm
+sonar-scanner -Dsonar.login=**TOKEN**
 ```
 
 <br>
