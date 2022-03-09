@@ -5,7 +5,7 @@ module.exports = function (config) {
   config.set({
     ...baseRootConfig,
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/shared-lib'),
+      dir: require('path').join(__dirname, '../../coverage'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }, { type: 'lcov' }],
       fixWebpackSourcePaths: true,
