@@ -1,10 +1,5 @@
 # Coisas a Fazer no projeto
 
-- Adicionar e configurar:
-  - SonarCloud
-
-<br>
-
 - Criar pagina manutenção, remover conteúdo default
 
 <br>
