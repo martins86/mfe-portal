@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@portal/pages/*": ["projects/portal/src/app/pages/*"]
+      "@portal/*": ["projects/portal/src/app/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
