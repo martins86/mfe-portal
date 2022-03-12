@@ -38,6 +38,15 @@
 
 <br>
 
+## implementar feature toggle
+
+- criar crud para add nova ft - só tem acesso dev e adm
+- criar enum com id pra cada ft = { id = 1, featureName="showSignUpLink" } shared/enums/featureToggleEnum.ts
+- service para encrypt e decrypt das fts
+- diretiva que recebe o feature-name="showSignUpLink"
+
+https://blog.theodo.com/2016/08/feature-toggling-in-angular-with-20-lines-of-code/
+
 ## DB realtime com FireBase
 
 - db-user
@@ -48,3 +57,5 @@
   - a cada upload com sucesso guarda data e hr
 - db-investimentos
   - só com o que é exibido no (get, put e delete)
+- db-feature-toggle
+  - get, post e delete
