@@ -8,10 +8,14 @@ import { HeaderComponent } from './header/header.component'
 import { LeftBarComponent } from './left-bar/left-bar.component'
 import { FooterComponent } from './footer/footer.component'
 
-const layoutModules = [HeaderComponent, LeftBarComponent, FooterComponent]
+const layoutComponents = [HeaderComponent, LeftBarComponent, FooterComponent]
+
+import { MaintenanceModule } from '../../pages/maintenance/maintenance.module'
+
+const pagesModules = [MaintenanceModule]
 
 @NgModule({
-  declarations: [DefaultComponent, ...layoutModules],
-  imports: [CommonModule, DefaultRoutingModule],
+  declarations: [DefaultComponent, ...layoutComponents],
+  imports: [CommonModule, DefaultRoutingModule, ...pagesModules],
 })
 export class DefaultModule {}

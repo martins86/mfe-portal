@@ -7,6 +7,20 @@ const routes: Routes = [
   {
     path: '',
     component: DefaultComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'maintenance',
+        pathMatch: 'full',
+      },
+      {
+        path: 'maintenance',
+        loadChildren: () =>
+          import('@portal/pages/maintenance/maintenance.module').then(
+            (module) => module.MaintenanceModule
+          ),
+      },
+    ],
   },
 ]
 
