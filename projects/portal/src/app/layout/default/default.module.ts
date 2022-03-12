@@ -11,8 +11,9 @@ import { FooterComponent } from './footer/footer.component'
 const layoutComponents = [HeaderComponent, LeftBarComponent, FooterComponent]
 
 import { MaintenanceModule } from '../../pages/maintenance/maintenance.module'
+import { NotFoundModule } from '../../pages/not-found/not-found.module'
 
-const pagesModules = [MaintenanceModule]
+const pagesModules = [MaintenanceModule, NotFoundModule]
 
 @NgModule({
   declarations: [DefaultComponent, ...layoutComponents],

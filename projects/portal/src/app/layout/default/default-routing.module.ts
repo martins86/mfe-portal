@@ -20,6 +20,13 @@ const routes: Routes = [
             (module) => module.MaintenanceModule
           ),
       },
+      {
+        path: '**',
+        loadChildren: () =>
+          import('@portal/pages/not-found/not-found.module').then(
+            (module) => module.NotFoundModule
+          ),
+      },
     ],
   },
 ]
