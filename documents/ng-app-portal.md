@@ -1,14 +1,14 @@
 # Criando itens do portal
 
-## Criando o layout default com module, routes, header, footer e left-bar
+## Criando o layout default com module, routes, top-bar, bottom-bar e left-bar
 
 ```sh
 ng g m layout/default/ --module app --routing
 
 ng g c layout/default/
-ng g c layout/default/header
+ng g c layout/default/top-bar
 ng g c layout/default/left-bar
-ng g c layout/default/footer
+ng g c layout/default/bottom-bar
 ```
 
 ## Configurando rota para o layout default (app-routing.module.ts)
