@@ -1,0 +1,55 @@
+// Theme Dark (escuro)
+
+// Texto
+$dark-text: #ffffff;
+$dark-primary-text: $dark-text;
+$dark-accent-text: rgba($dark-primary-text, 0.7);
+$dark-disabled-text: rgba($dark-primary-text, 0.5);
+$dark-dividers: rgba($dark-primary-text, 0.12);
+$dark-focused: rgba($dark-primary-text, 0.12);
+
+$mat-dark-theme-foreground: (
+  base: $dark-text,
+  divider: $dark-dividers,
+  dividers: $dark-dividers,
+  disabled: $dark-disabled-text,
+  disabled-button: rgba($dark-text, 0.3),
+  disabled-text: $dark-disabled-text,
+  elevation: black,
+  hint-text: $dark-disabled-text,
+  secondary-text: $dark-accent-text,
+  accent-text: $dark-accent-text,
+  icon: $dark-text,
+  icons: $dark-text,
+  text: $dark-text,
+  slider-min: $dark-text,
+  slider-off: rgba($dark-text, 0.3),
+  slider-off-active: rgba($dark-text, 0.3),
+);
+
+// Plano de fundo
+$dark-background: #2d2d2d;
+$dark-bg-lighter-5: lighten($dark-background, 5%);
+$dark-bg-lighter-10: lighten($dark-background, 10%);
+$dark-bg-lighter-20: lighten($dark-background, 20%);
+$dark-bg-lighter-30: lighten($dark-background, 30%);
+$dark-bg-alpha-4: rgba(#fafafa, 0.04);
+$dark-bg-alpha-12: rgba(#fafafa, 0.12);
+
+$mat-dark-theme-background: (
+  background: $dark-background,
+  status-bar: $dark-bg-lighter-20,
+  app-bar: $dark-bg-lighter-5,
+  hover: $dark-bg-alpha-4,
+  card: $dark-bg-lighter-5,
+  dialog: $dark-bg-lighter-5,
+  tooltip: $dark-bg-lighter-20,
+  disabled-button: $dark-bg-alpha-12,
+  raised-button: $dark-bg-lighter-5,
+  focused-button: $dark-focused,
+  selected-button: $dark-bg-lighter-20,
+  selected-disabled-button: $dark-bg-lighter-30,
+  disabled-button-toggle: $dark-bg-lighter-10,
+  unselected-chip: $dark-bg-lighter-20,
+  disabled-list-option: $dark-bg-lighter-10,
+);

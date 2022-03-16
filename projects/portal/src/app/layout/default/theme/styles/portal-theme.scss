@@ -1,37 +1,99 @@
+/**
+* Generated theme by Material Theme Generator
+* https://materialtheme.arcsine.dev
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzljMjVhZiIsIj9lcjwjZTFiZWU3IiwiO2VyPCM4MDE2OTZ$LCIlPmBePCM3YzFlOTUiLCI~ZXI8I2Q4YmNkZiIsIjtlcjwjNWYxMjc4fiwid2Fybj5gXjwjZmYwMDAwIiwiP2VyPCNmZmIzYjMiLCI7ZXI8I2ZmMDAwMH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyZDJkMmR$LCJmb250cz5bYEA8KC00IiwiZmFtaWx5PFBvcHBpbnN$LGBAPCgtMyIsImZhbWlseTxQb3BwaW5zfixgQDwoLTIiLCJmYW1pbHk8UG9wcGluc34sYEA8KC0xIiwiZmFtaWx5PFBvcHBpbnN$LGBAPGhlYWRsaW5lIiwiZmFtaWx5PFBvcHBpbnN$LGBAPHRpdGxlIiwiZmFtaWx5PFBvcHBpbnN$LGBAPHN1YiktMiIsImZhbWlseTxQb3BwaW5zfixgQDxzdWIpLTEiLCJmYW1pbHk8UG9wcGluc34sYEA8Ym9keS0yIiwiZmFtaWx5PFBvcHBpbnN$LGBAPGJvZHktMSIsImZhbWlseTxQb3BwaW5zfixgQDxidXR0b24iLCJmYW1pbHk8UG9wcGluc34sYEA8Y2FwdGlvbiIsImZhbWlseTxQb3BwaW5zfixgQDxpbnB1dCIsImZhbWlseTxQb3BwaW5zIiwic2l6ZT5udWxsfV0sImljb25zPEZpbGxlZCIsIj9uZXNzPnRydWUsInZlcnNpb24$MTN9
+*/
+
 @use '@angular/material' as mat;
 
-@include mat.core();
+@import './fonts';
 
-// definindo tema claro
-$light-primary: mat.define-palette(mat.$indigo-palette);
-$light-accent: mat.define-palette(mat.$pink-palette);
-$light-theme: mat.define-light-theme(
-  (
-    color: (
-      primary: $light-primary,
-      accent: $light-accent,
-    ),
-  )
-);
+@import './light.scss';
+@import './dark.scss';
 
-// definindo tema escuro
-$dark-primary: mat.define-palette(mat.$pink-palette);
-$dark-accent: mat.define-palette(mat.$blue-gray-palette);
-$dark-theme: mat.define-dark-theme(
-  (
-    color: (
-      primary: $dark-primary,
-      accent: $dark-accent,
-    ),
-  )
-);
-
-// aplicando tema claro por padrão
-@include mat.core-color($light-theme);
-@include mat.button-color($light-theme);
-
-// adicionando tema escuro, para usar aplique ao body a classe dark-theme
-.dark-theme {
-  @include mat.core-theme($dark-theme);
-  @include mat.button-theme($dark-theme);
+body {
+  --primary-color: #9c25af;
+  --primary-lighter-color: #e1bee7;
+  --primary-darker-color: #801696;
+  --text-primary-color: #{$light-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
+  --accent-color: #7c1e95;
+  --accent-lighter-color: #d8bcdf;
+  --accent-darker-color: #5f1278;
+  --text-accent-color: #{$light-primary-text};
+  --text-accent-lighter-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$light-primary-text};
+  --warn-color: #ff0000;
+  --warn-lighter-color: #ffb3b3;
+  --warn-darker-color: var(--warn-color);
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
 }
+
+$mat-primary: (
+  main: var(--primary-color),
+  lighter: var(--primary-lighter-color),
+  darker: var(--primary-darker-color),
+  200: var(--primary-color),
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+$theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
+
+$mat-accent: (
+  main: var(--accent-color),
+  lighter: var(--accent-lighter-color),
+  darker: var(--accent-darker-color),
+  200: var(--accent-color),
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+$theme-accent: mat.define-palette($mat-accent, main, lighter, darker);
+
+$mat-warn: (
+  main: var(--warn-color),
+  lighter: var(--warn-lighter-color),
+  darker: var(--warn-color),
+  200: var(--warn-color),
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+$theme-warn: mat.define-palette($mat-warn, main, lighter, darker);
+
+$light-theme: (
+  primary: $theme-primary,
+  accent: $theme-accent,
+  warn: $theme-warn,
+  is-dark: false,
+  foreground: $mat-light-theme-foreground,
+  background: $mat-light-theme-background,
+);
+$dark-theme: (
+  primary: $theme-primary,
+  accent: $theme-accent,
+  warn: $theme-warn,
+  is-dark: true,
+  foreground: $mat-dark-theme-foreground,
+  background: $mat-dark-theme-background,
+);
+
+.light-theme {
+  @include mat.all-component-themes($light-theme);
+}
+
+.dark-theme {
+  @include mat.all-component-themes($dark-theme);
+}
+
+@import './mat-itens';
