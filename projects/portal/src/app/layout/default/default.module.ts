@@ -4,9 +4,17 @@ import { CommonModule } from '@angular/common'
 import { DefaultRoutingModule } from './default-routing.module'
 import { DefaultComponent } from './default.component'
 
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { ReactiveFormsModule } from '@angular/forms'
 import { MatIconModule } from '@angular/material/icon'
 
-const materialModules = [MatIconModule]
+const materialModules = [
+  MatSidenavModule,
+  MatSlideToggleModule,
+  ReactiveFormsModule,
+  MatIconModule,
+]
 
 import { TopBarComponent } from './top-bar/top-bar.component'
 import { LeftBarComponent } from './left-bar/left-bar.component'

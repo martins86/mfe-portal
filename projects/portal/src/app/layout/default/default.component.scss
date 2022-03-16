@@ -4,11 +4,31 @@
   height: 100vh;
 }
 
+app-top-bar {
+  height: 64px;
+}
+
+mat-drawer-container {
+  height: calc(100vh - 115px);
+
+  mat-drawer {
+    width: 300px;
+  }
+
+  mat-drawer-content {
+    color: var(--text-primary-lighter-color);
+  }
+}
+
 app-bottom-bar {
-  background-color: var(--primary-color);
-  color: var(--text-primary-lighter-color);
   bottom: 0;
   width: 100vw;
   padding: 15px 12px;
   position: fixed;
+}
+
+app-top-bar,
+app-bottom-bar {
+  background-color: var(--primary-color);
+  color: var(--text-primary-lighter-color);
 }

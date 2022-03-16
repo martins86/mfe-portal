@@ -5,4 +5,6 @@ import { Component } from '@angular/core'
   templateUrl: './default.component.html',
   styleUrls: ['./default.component.scss'],
 })
-export class DefaultComponent {}
+export class DefaultComponent {
+  leftBarOpen = false
+}

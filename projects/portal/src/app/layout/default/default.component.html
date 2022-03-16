@@ -1,4 +1,13 @@
 <app-top-bar></app-top-bar>
-<app-left-bar></app-left-bar>
-<router-outlet></router-outlet>
+
+<mat-drawer-container [hasBackdrop]="false">
+  <mat-drawer mode="over" [opened]="leftBarOpen">
+    <app-left-bar></app-left-bar>
+  </mat-drawer>
+
+  <mat-drawer-content class="p-4">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
 <app-bottom-bar></app-bottom-bar>
