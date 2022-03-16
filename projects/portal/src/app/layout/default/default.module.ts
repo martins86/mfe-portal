@@ -8,12 +8,14 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
 
 const materialModules = [
   MatSidenavModule,
   MatSlideToggleModule,
   ReactiveFormsModule,
   MatIconModule,
+  MatButtonModule,
 ]
 
 import { TopBarComponent } from './top-bar/top-bar.component'
