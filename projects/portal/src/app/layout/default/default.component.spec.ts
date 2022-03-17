@@ -25,4 +25,52 @@ describe('DefaultComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy()
   })
+
+  describe('Testing toggleLeftBar', () => {
+    it('should the leftBarOpen value be equal to false', () => {
+      // Arrange
+      component.leftBarOpen = true
+
+      // Act
+      component.toggleLeftBar()
+
+      // Assert
+      expect(component.leftBarOpen).toBe(false)
+    })
+
+    it('should the leftBarOpen value be equal to true', () => {
+      // Arrange
+      component.leftBarOpen = false
+
+      // Act
+      component.toggleLeftBar()
+
+      // Assert
+      expect(component.leftBarOpen).toBe(true)
+    })
+  })
+
+  describe('Testing closeLeftBar', () => {
+    it('should the leftBarOpen value be equal to false', () => {
+      // Arrange
+      component.leftBarOpen = true
+
+      // Act
+      component.closeLeftBar()
+
+      // Assert
+      expect(component.leftBarOpen).toBe(false)
+    })
+
+    it('should the value of leftBarOpen remain equal to false', () => {
+      // Arrange
+      component.leftBarOpen = false
+
+      // Act
+      component.closeLeftBar()
+
+      // Assert
+      expect(component.leftBarOpen).toBe(false)
+    })
+  })
 })

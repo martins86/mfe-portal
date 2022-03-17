@@ -1,8 +1,8 @@
-<app-top-bar></app-top-bar>
+<app-top-bar (emitToggleLeftBar)="toggleLeftBar()"></app-top-bar>
 
 <mat-drawer-container [hasBackdrop]="false">
   <mat-drawer mode="over" [opened]="leftBarOpen">
-    <app-left-bar></app-left-bar>
+    <app-left-bar (emitCloseLeftBar)="closeLeftBar()"></app-left-bar>
   </mat-drawer>
 
   <mat-drawer-content class="p-4">

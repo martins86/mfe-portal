@@ -22,7 +22,7 @@ describe('TopBarComponent', () => {
     expect(component).toBeTruthy()
   })
 
-  describe('Testing header', () => {
+  describe('Testing toggleBtnAnimate', () => {
     it('should not set classList "active" before toggleBtnAnimate call', () => {
       // Arrange
       let btnElement =
@@ -44,6 +44,22 @@ describe('TopBarComponent', () => {
       // Assert
       expect(btnElement).toBeTruthy()
       expect(btnElement.classList).toContain('active')
+    })
+  })
+
+  describe('Testing toggleLeftBar', () => {
+    it('should emit emitToggleLeftBar', () => {
+      // Arrange
+      spyOn(component.emitToggleLeftBar, 'emit')
+
+      // Act
+      component.toggleLeftBar()
+
+      // Assert
+      expect(component.emitToggleLeftBar.emit).toHaveBeenCalled()
+      expect(component.emitToggleLeftBar.emit).toHaveBeenCalledWith(
+        'toggleLeftBar'
+      )
     })
   })
 })

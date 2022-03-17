@@ -7,4 +7,12 @@ import { Component } from '@angular/core'
 })
 export class DefaultComponent {
   leftBarOpen = false
+
+  toggleLeftBar(): void {
+    this.leftBarOpen = !this.leftBarOpen
+  }
+
+  closeLeftBar(): void {
+    this.leftBarOpen = false
+  }
 }

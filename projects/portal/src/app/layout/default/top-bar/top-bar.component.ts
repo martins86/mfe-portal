@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core'
+import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core'
 
 @Component({
   selector: 'app-top-bar',
@@ -6,8 +6,15 @@ import { AfterViewInit, Component } from '@angular/core'
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent implements AfterViewInit {
+  @Output()
+  emitToggleLeftBar: EventEmitter<string> = new EventEmitter()
+
   ngAfterViewInit(): void {
     this.toggleBtnAnimate()
+  }
+
+  toggleLeftBar(): void {
+    this.emitToggleLeftBar.emit('toggleLeftBar')
   }
 
   toggleBtnAnimate(): void {
