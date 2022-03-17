@@ -27,6 +27,11 @@ describe('DefaultComponent', () => {
   })
 
   describe('Testing toggleLeftBar', () => {
+    it('should the leftBarOpen value starts with false', () => {
+      // Assert
+      expect(component.leftBarOpen).toBe(false)
+    })
+
     it('should the leftBarOpen value be equal to false', () => {
       // Arrange
       component.leftBarOpen = true

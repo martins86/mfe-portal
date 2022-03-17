@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { RouterModule } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http'
 
 import { DefaultRoutingModule } from './default-routing.module'
 import { DefaultComponent } from './default.component'
@@ -9,6 +11,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
+import { MatListModule } from '@angular/material/list'
+import { MatDividerModule } from '@angular/material/divider'
 
 const materialModules = [
   MatSidenavModule,
@@ -16,6 +20,8 @@ const materialModules = [
   ReactiveFormsModule,
   MatIconModule,
   MatButtonModule,
+  MatListModule,
+  MatDividerModule,
 ]
 
 import { TopBarComponent } from './top-bar/top-bar.component'
@@ -33,6 +39,8 @@ const pagesModules = [MaintenanceModule, NotFoundModule]
   declarations: [DefaultComponent, ...layoutComponents],
   imports: [
     CommonModule,
+    RouterModule,
+    HttpClientModule,
     DefaultRoutingModule,
     ...materialModules,
     ...pagesModules,
