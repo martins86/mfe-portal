@@ -1,5 +1,5 @@
 mat-nav-list {
-  margin-top: 40px;
+  margin: 40px 0;
 }
 
 .mat-subheader {
@@ -9,6 +9,6 @@ mat-nav-list {
   color: var(--accent-color);
 }
 
-.mat-nav-list .mat-list-item {
+.mat-list-item {
   border-bottom: 1px solid var(--primary-lighter-color);
 }

@@ -1,13 +1,14 @@
 <nav role="navigation">
   <mat-nav-list>
-    <mat-list>
-      <h3 mat-subheader>Páginas</h3>
+    <mat-list role="list">
+      <h3 mat-subheader color="accent">Páginas</h3>
       <mat-list-item
         [routerLink]="['/']"
         [routerLinkActiveOptions]="{ exact: true }"
         routerLinkActive="active"
+        role="listitem"
       >
-        <mat-icon mat-list-icon aria-hidden="false" aria-label="home icon"
+        <mat-icon mat-list-icon aria-hidden="false" aria-label="ícone home"
           >home</mat-icon
         >
         <div mat-line>Dashboard</div>
@@ -15,19 +16,19 @@
     </mat-list>
   </mat-nav-list>
 
-  <mat-nav-list>
-    <mat-list>
-      <h3 mat-subheader>Tema</h3>
-      <mat-list-item>
-        <h5 mat-line>Light/Dark</h5>
-        <div
-          class="w-50 d-flex flex-row justify-content-between align-items-center"
+  <mat-list role="list">
+    <h3 mat-subheader>Tema</h3>
+    <mat-list-item role="listitem">
+      <h5 mat-line>Light/Dark</h5>
+      <div
+        class="w-50 d-flex flex-row justify-content-between align-items-center"
+      >
+        <mat-icon aria-hidden="false" aria-label="ícone sol"
+          >brightness_5</mat-icon
         >
-          <mat-icon>brightness_5</mat-icon>
-          <mat-slide-toggle [formControl]="toggleControl"> </mat-slide-toggle>
-          <mat-icon>bedtime</mat-icon>
-        </div>
-      </mat-list-item>
-    </mat-list>
-  </mat-nav-list>
+        <mat-slide-toggle [formControl]="toggleControl"> </mat-slide-toggle>
+        <mat-icon aria-hidden="false" aria-label="ícone lua">bedtime</mat-icon>
+      </div>
+    </mat-list-item>
+  </mat-list>
 </nav>
