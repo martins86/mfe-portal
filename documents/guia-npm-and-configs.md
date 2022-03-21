@@ -200,17 +200,11 @@ module.exports = function () {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        flags: [
-          '--headless',
-          '--no-sandbox',
-          '--remote-debugging-port=9222'
-        ],
+        flags: ['--headless', '--no-sandbox', '--remote-debugging-port=9222'],
       },
       ChromeDebug: {
-        base: "Chrome",
-        flags: [
-          "--remote-debugging-port=9222",
-        ],
+        base: 'Chrome',
+        flags: ['--remote-debugging-port=9222'],
         debug: true,
       },
       ChromeHeadlessDocker: {
@@ -228,16 +222,16 @@ module.exports = function () {
       suppressFailed: false,
       suppressPassed: false,
       suppressSkipped: false,
-      showSpecTiming: false,
-      failFast: true,
+      showSpecTiming: true,
+      failFast: false,
       prefixes: {
         success: '    OK: ',
         failure: 'FAILED: ',
-        skipped: 'SKIPPED: '
-      }
+        skipped: 'SKIPPED: ',
+      },
     },
-  };
-};
+  }
+}
 
 ```
 

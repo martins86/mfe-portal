@@ -66,8 +66,8 @@ module.exports = function () {
       suppressFailed: false,
       suppressPassed: false,
       suppressSkipped: false,
-      showSpecTiming: false,
-      failFast: true,
+      showSpecTiming: true,
+      failFast: false,
       prefixes: {
         success: '    OK: ',
         failure: 'FAILED: ',
