@@ -148,10 +148,15 @@ npm install lint-staged --save-dev
 ## 5. Configurando o Karma
 
 ```sh
+## Adicionando o karma-spec-reporter
+npm install karma-spec-reporter --save-dev
+```
+
+```sh
 ## Adicionando o karma.root.conf.js
 module.exports = function () {
   return {
-    basePath: '',
+    basePath: './',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
@@ -159,9 +164,12 @@ module.exports = function () {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-spec-reporter'),
     ],
     client: {
-      jasmine: {},
+      jasmine: {
+        failSpecWithNoExpectations: true,
+      },
       clearContext: false,
     },
     jasmineHtmlReporter: {
@@ -182,7 +190,7 @@ module.exports = function () {
         functions: 80,
       },
     },
-    reporters: ['progress', 'coverage', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'spec'],
     port: 9876,
     colors: true,
     autoWatch: true,
@@ -192,13 +200,42 @@ module.exports = function () {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        flags: ['--headless', '--no-sandbox', '--remote-debugging-port=9222'],
+        flags: [
+          '--headless',
+          '--no-sandbox',
+          '--remote-debugging-port=9222'
+        ],
+      },
+      ChromeDebug: {
+        base: "Chrome",
+        flags: [
+          "--remote-debugging-port=9222",
+        ],
+        debug: true,
+      },
+      ChromeHeadlessDocker: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox'],
       },
     },
     browserDisconnectTolerance: 8,
     browserNoActivityTimeout: 60000,
     browserDisconnectTimeout: 20000,
     captureTimeout: 210000,
+    specReporter: {
+      maxLogLines: 5,
+      suppressErrorSummary: false,
+      suppressFailed: false,
+      suppressPassed: false,
+      suppressSkipped: false,
+      showSpecTiming: false,
+      failFast: true,
+      prefixes: {
+        success: '    OK: ',
+        failure: 'FAILED: ',
+        skipped: 'SKIPPED: '
+      }
+    },
   };
 };
 
