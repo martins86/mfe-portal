@@ -7,6 +7,7 @@ import { Component } from '@angular/core'
 })
 export class DefaultComponent {
   leftBarOpen = false
+  maintenance = true
 
   toggleLeftBar(): void {
     this.leftBarOpen = !this.leftBarOpen

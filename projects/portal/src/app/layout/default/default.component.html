@@ -1,13 +1,24 @@
-<app-top-bar (emitToggleLeftBar)="toggleLeftBar()"></app-top-bar>
+<ng-container *ngIf="maintenance; then siteOff; else siteOn"></ng-container>
 
-<mat-drawer-container [hasBackdrop]="false">
-  <mat-drawer mode="over" [opened]="leftBarOpen">
-    <app-left-bar (emitCloseLeftBar)="closeLeftBar()"></app-left-bar>
-  </mat-drawer>
-
-  <mat-drawer-content class="p-4">
+<ng-template #siteOff>
+  <div class="vh-100">
     <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+  </div>
+  <app-bottom-bar></app-bottom-bar>
+</ng-template>
 
-<app-bottom-bar></app-bottom-bar>
+<ng-template #siteOn>
+  <app-top-bar (emitToggleLeftBar)="toggleLeftBar()"></app-top-bar>
+
+  <mat-drawer-container [hasBackdrop]="false">
+    <mat-drawer mode="over" [opened]="leftBarOpen">
+      <app-left-bar (emitCloseLeftBar)="closeLeftBar()"></app-left-bar>
+    </mat-drawer>
+
+    <mat-drawer-content class="p-4">
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+  <app-bottom-bar></app-bottom-bar>
+</ng-template>
