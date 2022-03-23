@@ -12,11 +12,12 @@
     "prettier-check": "npx prettier --check .",
     "test:ci": "npm run test -- --no-watch --no-progress --browsers ChromeHeadlessNoSandbox",
     "pre-commit": "npx --no-install lint-staged && npm run lint",
-    "pre-push": "npm run test:ci",
+    "pre-push": "npm run test:ci && npm run sonar",
     "postinstall": "npx husky install && chmod ug+x .husky/*",
     "commit": "git-cz",
     "release": "standard-version",
-    "test:dev": "npm run test -- --progress --browsers Chrome"
+    "test:dev": "npm run test -- --progress --browsers Chrome",
+    "sonar": "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed"
   },
   "private": true,
   "dependencies": {

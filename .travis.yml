@@ -12,7 +12,7 @@ addons:
   sonarcloud:
     organization: 'martins86'
     token:
-      secure: $SONAR_TOKEN
+      secure: 57a82ee65a2f2a92c020e8b73d717c12a36763ed
 
 cache:
   yarn: true
@@ -20,7 +20,7 @@ cache:
     - node_modules
 
 install:
-  - npm install -g @angular/cli@13.2.5
+  - npm install -g @angular/cli@13.2.5 sonarqube-scanner
   - npm install
 
 before_install:
@@ -31,7 +31,7 @@ before_install:
 script:
   - npm run lint
   - npm run test:ci
-  - sonar-scanner
+  - npm run sonar
   - npm run build
   - cd dist/portal
   - cp index.html 404.html

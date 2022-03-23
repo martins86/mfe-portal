@@ -475,11 +475,16 @@ sonar.projectVersion=1.0
 sonar.projectName=martins86_mfe-portal
 sonar.projectKey=martins86_mfe-portal
 
+sonar.links.homepage=https://martins86.github.io/mfe-portal
+sonar.links.ci=https://app.travis-ci.com/github/martins86/mfe-portal
+sonar.links.scm=https://github.com/martins86/mfe-portal
+sonar.links.issue=https://github.com/martins86/mfe-portal/issue
+
 sonar.sourceEncoding=UTF-8
 sonar.sources=projects
 
 sonar.exclusions=**/node_modules/**,**/*.js
-sonar.coverage.exclusions=**/*.js,src/main.ts,src/polyfills.ts,**/*environment*.ts,**/*module.ts
+sonar.coverage.exclusions=**/*.js,**/src/main.ts,**/src/polyfills.ts,**/*environment*.ts,**/*module.ts
 
 sonar.tests=app
 sonar.test.inclusions=**/*.spec.ts,**/*test.ts
@@ -490,9 +495,10 @@ sonar.javascript.lcov.reportPaths=coverage/lcov.info
 ```
 
 ```sh
-## depois de configurar o sonar e instalar o scanner
-## gerar token no sonar e colocar ele no travis tbm
-sonar-scanner -Dsonar.login=**TOKEN**
+## configurando os scripts para o sonar local
+## gerar token do projeto no site do https://sonarcloud.io
+npm set-script sonar "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed"
+npm set-script pre-push "npm run test:ci && npm run sonar"
 ```
 
 <br>

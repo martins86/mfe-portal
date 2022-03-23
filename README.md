@@ -2,7 +2,7 @@
 
 [![Build Status](https://app.travis-ci.com/martins86/mfe-portal.svg?branch=master)](https://app.travis-ci.com/martins86/mfe-portal)
 
-<!-- [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=martins86_mfe-portal&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=martins86_mfe-portal) -->
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=martins86_mfe-portal)
 
 ![GitHub package.json version][version-img]
 ![npm][npm-img]
