@@ -1,13 +1,11 @@
-# Micro Front-end: Portal &nbsp; | &nbsp; ![GitHub last commit][commit-img]
-
-[![Build Status](https://app.travis-ci.com/martins86/mfe-portal.svg?branch=master)](https://app.travis-ci.com/martins86/mfe-portal)
-
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=martins86_mfe-portal)
+# Micro Front-end: Portal &nbsp; | &nbsp; ![GitHub last commit][commit-img] [![Build Status](https://app.travis-ci.com/martins86/mfe-portal.svg?branch=master)](https://app.travis-ci.com/martins86/mfe-portal)
 
 ![GitHub package.json version][version-img]
 ![npm][npm-img]
 ![node-current](https://img.shields.io/node/v/latest-version)
 ![GitHub top language][language-img]
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=martins86_mfe-portal)
 
 <br>
 <br>
