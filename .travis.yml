@@ -7,6 +7,11 @@ node_js:
 
 dist: xenial
 
+sudo: required
+
+services:
+  - xvfb
+
 addons:
   chrome: stable
   sonarcloud:
@@ -26,7 +31,6 @@ install:
 before_install:
   - export DISPLAY=:99.0
   - export NODE_OPTIONS=--openssl-legacy-provider
-  - sh -e /etc/init.d/xvfb start
 
 script:
   - npm run lint
