@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+mat-drawer-container {
+  height: calc(100vh - 124px);
+
+  mat-drawer {
+    width: 300px;
+  }
+
+  mat-drawer-content {
+    color: var(--text-primary-lighter-color);
+  }
+}
+
+app-top-bar,
+app-bottom-bar {
+  background-color: var(--primary-color);
+  color: var(--text-primary-lighter-color);
+}

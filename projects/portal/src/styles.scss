@@ -1,11 +1,7 @@
-@import './assets/styles/portal-theme.scss';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import './app/layout/default/theme/styles/portal-theme.scss';
 
 html,
 body {
   height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }

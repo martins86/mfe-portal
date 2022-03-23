@@ -1,6 +1,6 @@
 {
   "name": "mfe-portal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --project=portal --port=5000 --host=0.0.0.0 --disable-host-check --open",
@@ -12,11 +12,12 @@
     "prettier-check": "npx prettier --check .",
     "test:ci": "npm run test -- --no-watch --no-progress --browsers ChromeHeadlessNoSandbox",
     "pre-commit": "npx --no-install lint-staged && npm run lint",
-    "pre-push": "npm run test:ci",
+    "pre-push": "npm run test:ci && npm run sonar",
     "postinstall": "npx husky install && chmod ug+x .husky/*",
     "commit": "git-cz",
     "release": "standard-version",
-    "test:dev": "npm run test -- --progress --browsers Chrome"
+    "test:dev": "npm run test -- --progress --browsers Chrome",
+    "sonar": "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed"
   },
   "private": true,
   "dependencies": {
@@ -62,6 +63,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "karma-spec-reporter": "^0.0.33",
     "lint-staged": "^12.3.5",
     "prettier": "2.5.1",
     "sonarqube-scanner": "^2.8.1",

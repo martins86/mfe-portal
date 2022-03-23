@@ -148,10 +148,15 @@ npm install lint-staged --save-dev
 ## 5. Configurando o Karma
 
 ```sh
+## Adicionando o karma-spec-reporter
+npm install karma-spec-reporter --save-dev
+```
+
+```sh
 ## Adicionando o karma.root.conf.js
 module.exports = function () {
   return {
-    basePath: '',
+    basePath: './',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
@@ -159,9 +164,12 @@ module.exports = function () {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-spec-reporter'),
     ],
     client: {
-      jasmine: {},
+      jasmine: {
+        failSpecWithNoExpectations: true,
+      },
       clearContext: false,
     },
     jasmineHtmlReporter: {
@@ -182,7 +190,7 @@ module.exports = function () {
         functions: 80,
       },
     },
-    reporters: ['progress', 'coverage', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'spec'],
     port: 9876,
     colors: true,
     autoWatch: true,
@@ -194,13 +202,36 @@ module.exports = function () {
         base: 'ChromeHeadless',
         flags: ['--headless', '--no-sandbox', '--remote-debugging-port=9222'],
       },
+      ChromeDebug: {
+        base: 'Chrome',
+        flags: ['--remote-debugging-port=9222'],
+        debug: true,
+      },
+      ChromeHeadlessDocker: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox'],
+      },
     },
     browserDisconnectTolerance: 8,
     browserNoActivityTimeout: 60000,
     browserDisconnectTimeout: 20000,
     captureTimeout: 210000,
-  };
-};
+    specReporter: {
+      maxLogLines: 5,
+      suppressErrorSummary: false,
+      suppressFailed: false,
+      suppressPassed: false,
+      suppressSkipped: false,
+      showSpecTiming: true,
+      failFast: false,
+      prefixes: {
+        success: '    OK: ',
+        failure: 'FAILED: ',
+        skipped: 'SKIPPED: ',
+      },
+    },
+  }
+}
 
 ```
 
@@ -444,11 +475,16 @@ sonar.projectVersion=1.0
 sonar.projectName=martins86_mfe-portal
 sonar.projectKey=martins86_mfe-portal
 
+sonar.links.homepage=https://martins86.github.io/mfe-portal
+sonar.links.ci=https://app.travis-ci.com/github/martins86/mfe-portal
+sonar.links.scm=https://github.com/martins86/mfe-portal
+sonar.links.issue=https://github.com/martins86/mfe-portal/issue
+
 sonar.sourceEncoding=UTF-8
 sonar.sources=projects
 
 sonar.exclusions=**/node_modules/**,**/*.js
-sonar.coverage.exclusions=**/*.js,src/main.ts,src/polyfills.ts,**/*environment*.ts,**/*module.ts
+sonar.coverage.exclusions=**/*.js,**/src/main.ts,**/src/polyfills.ts,**/*environment*.ts,**/*module.ts
 
 sonar.tests=app
 sonar.test.inclusions=**/*.spec.ts,**/*test.ts
@@ -459,9 +495,10 @@ sonar.javascript.lcov.reportPaths=coverage/lcov.info
 ```
 
 ```sh
-## depois de configurar o sonar e instalar o scanner
-## gerar token no sonar e colocar ele no travis tbm
-sonar-scanner -Dsonar.login=**TOKEN**
+## configurando os scripts para o sonar local
+## gerar token do projeto no site do https://sonarcloud.io
+npm set-script sonar "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed"
+npm set-script pre-push "npm run test:ci && npm run sonar"
 ```
 
 <br>

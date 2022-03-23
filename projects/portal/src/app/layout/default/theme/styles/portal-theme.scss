@@ -1,0 +1,99 @@
+/**
+* Generated theme by Material Theme Generator
+* https://materialtheme.arcsine.dev
+* Fork at: https://materialtheme.arcsine.dev/?c=YHBhbGV0dGU$YHByaW1hcnk$YF48IzljMjVhZiIsIj9lcjwjZTFiZWU3IiwiO2VyPCM4MDE2OTZ$LCIlPmBePCM3YzFlOTUiLCI~ZXI8I2Q4YmNkZiIsIjtlcjwjNWYxMjc4fiwid2Fybj5gXjwjZmYwMDAwIiwiP2VyPCNmZmIzYjMiLCI7ZXI8I2ZmMDAwMH4sIj9UZXh0PCMwMDAwMDAiLCI~PTwjZmFmYWZhIiwiO1RleHQ8I2ZmZmZmZiIsIjs9PCMyZDJkMmR$LCJmb250cz5bYEA8KC00IiwiZmFtaWx5PFBvcHBpbnN$LGBAPCgtMyIsImZhbWlseTxQb3BwaW5zfixgQDwoLTIiLCJmYW1pbHk8UG9wcGluc34sYEA8KC0xIiwiZmFtaWx5PFBvcHBpbnN$LGBAPGhlYWRsaW5lIiwiZmFtaWx5PFBvcHBpbnN$LGBAPHRpdGxlIiwiZmFtaWx5PFBvcHBpbnN$LGBAPHN1YiktMiIsImZhbWlseTxQb3BwaW5zfixgQDxzdWIpLTEiLCJmYW1pbHk8UG9wcGluc34sYEA8Ym9keS0yIiwiZmFtaWx5PFBvcHBpbnN$LGBAPGJvZHktMSIsImZhbWlseTxQb3BwaW5zfixgQDxidXR0b24iLCJmYW1pbHk8UG9wcGluc34sYEA8Y2FwdGlvbiIsImZhbWlseTxQb3BwaW5zfixgQDxpbnB1dCIsImZhbWlseTxQb3BwaW5zIiwic2l6ZT5udWxsfV0sImljb25zPEZpbGxlZCIsIj9uZXNzPnRydWUsInZlcnNpb24$MTN9
+*/
+
+@use '@angular/material' as mat;
+
+@import './fonts';
+
+@import './light.scss';
+@import './dark.scss';
+
+body {
+  --primary-color: #2b5fab;
+  --primary-lighter-color: rgb(171 171 171 / 44%);
+  --primary-darker-color: #164196;
+  --text-primary-color: #{$light-primary-text};
+  --text-primary-lighter-color: #{$dark-primary-text};
+  --text-primary-darker-color: #{$light-primary-text};
+  --accent-color: #d4d4d4;
+  --accent-lighter-color: #f2f2f2;
+  --accent-darker-color: #c3c3c3;
+  --text-accent-color: #{$light-primary-text};
+  --text-accent-lighter-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$light-primary-text};
+  --warn-color: #ff0000;
+  --warn-lighter-color: #ff4444;
+  --warn-darker-color: var(--warn-color);
+  --text-warn-color: #{$light-primary-text};
+  --text-warn-lighter-color: #{$dark-primary-text};
+  --text-warn-darker-color: #{$light-primary-text};
+}
+
+$mat-primary: (
+  main: var(--primary-color),
+  lighter: var(--primary-lighter-color),
+  darker: var(--primary-darker-color),
+  200: var(--primary-color),
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+$theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
+
+$mat-accent: (
+  main: var(--accent-color),
+  lighter: var(--accent-lighter-color),
+  darker: var(--accent-darker-color),
+  200: var(--accent-color),
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+$theme-accent: mat.define-palette($mat-accent, main, lighter, darker);
+
+$mat-warn: (
+  main: var(--warn-color),
+  lighter: var(--warn-lighter-color),
+  darker: var(--warn-color),
+  200: var(--warn-color),
+  contrast: (
+    main: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text,
+  ),
+);
+$theme-warn: mat.define-palette($mat-warn, main, lighter, darker);
+
+$light-theme: (
+  primary: $theme-primary,
+  accent: $theme-accent,
+  warn: $theme-warn,
+  is-dark: false,
+  foreground: $mat-light-theme-foreground,
+  background: $mat-light-theme-background,
+);
+$dark-theme: (
+  primary: $theme-primary,
+  accent: $theme-accent,
+  warn: $theme-warn,
+  is-dark: true,
+  foreground: $mat-dark-theme-foreground,
+  background: $mat-dark-theme-background,
+);
+
+.light-theme {
+  @include mat.all-component-themes($light-theme);
+}
+
+.dark-theme {
+  @include mat.all-component-themes($dark-theme);
+}
+
+@import './mat-itens';
