@@ -15,7 +15,7 @@ addons:
   sonarcloud:
     organization: 'martins86'
     token:
-      secure: 57a82ee65a2f2a92c020e8b73d717c12a36763ed
+      secure: $SONAR_CLOUD_TOKEN
 
 cache:
   yarn: true
