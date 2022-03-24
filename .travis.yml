@@ -7,8 +7,6 @@ node_js:
 
 dist: xenial
 
-sudo: required
-
 services:
   - xvfb
 
@@ -17,7 +15,7 @@ addons:
   sonarcloud:
     organization: 'martins86'
     token:
-      secure: 57a82ee65a2f2a92c020e8b73d717c12a36763ed
+      secure: $SONAR_CLOUD_TOKEN
 
 cache:
   yarn: true
@@ -54,7 +52,9 @@ jobs:
 
 deploy:
   provider: pages
+  skip_cleanup: true
   github_token: $GITHUB_TOKEN_TRAVIS
   local_dir: dist/portal
+  keep_history: true
   on:
     branch: master
