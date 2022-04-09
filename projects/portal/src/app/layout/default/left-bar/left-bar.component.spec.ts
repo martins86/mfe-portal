@@ -30,7 +30,7 @@ describe('LeftBarComponent', () => {
   describe('Testing ngOnInit', () => {
     it('should call toggleThemes', () => {
       // Arrange
-      spyOn(component, 'toggleThemes').and.callThrough()
+      jest.spyOn(component, 'toggleThemes')
 
       // Act
       component.ngOnInit()
@@ -43,7 +43,7 @@ describe('LeftBarComponent', () => {
   describe('Testing closeLeftBar', () => {
     it('should emit emitCloseLeftBar', () => {
       // Arrange
-      spyOn(component.emitCloseLeftBar, 'emit')
+      jest.spyOn(component.emitCloseLeftBar, 'emit')
 
       // Act
       component.closeLeftBar()

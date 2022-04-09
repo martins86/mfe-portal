@@ -50,7 +50,7 @@ describe('TopBarComponent', () => {
   describe('Testing toggleLeftBar', () => {
     it('should emit emitToggleLeftBar', () => {
       // Arrange
-      spyOn(component.emitToggleLeftBar, 'emit')
+      jest.spyOn(component.emitToggleLeftBar, 'emit')
 
       // Act
       component.toggleLeftBar()
