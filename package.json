@@ -12,7 +12,7 @@
     "prettier-check": "npx prettier --check .",
     "test:ci": "npm run test -- --silent --colors --coverageReporters=text",
     "pre-commit": "npx --no-install lint-staged && npm run lint",
-    "pre-push": "npm run test:ci",
+    "pre-push": "npm run sonar && npm run test:ci",
     "postinstall": "npx husky install && chmod ug+x .husky/*",
     "commit": "git-cz",
     "release": "standard-version",
