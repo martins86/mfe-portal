@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { By } from '@angular/platform-browser'
 
 import { BottomBarComponent } from './bottom-bar.component'
 
@@ -28,11 +29,11 @@ describe('BottomBarComponent', () => {
       const textEn = `TMF © All rights reserved 2022-${component.currentYear}`
 
       // Act
-      const textElement = document.querySelector('footer')?.innerText
+      const textElement = fixture.debugElement.query(By.css('footer'))
 
       // Assert
       expect(textElement).toBeTruthy()
-      expect(textElement).toBe(textEn)
+      expect(textElement.nativeElement.innerHTML).toContain(textEn)
     })
   })
 })

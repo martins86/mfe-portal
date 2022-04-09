@@ -14,6 +14,7 @@
     "rvest.vs-code-prettier-eslint",
     "sonarsource.sonarlint-vscode",
     "shardulm94.trailing-spaces",
-    "TabNine.tabnine-vscode"
+    "tabnine.tabnine-vscode",
+    "Orta.vscode-jest"
   ]
 }

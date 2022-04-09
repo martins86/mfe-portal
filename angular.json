@@ -87,23 +87,6 @@
             "browserTarget": "portal:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/portal/src/test.ts",
-            "polyfills": "projects/portal/src/polyfills.ts",
-            "tsConfig": "projects/portal/tsconfig.spec.json",
-            "karmaConfig": "projects/portal/karma.conf.js",
-            "codeCoverageExclude": ["**/*.module.ts", "**/*.module.js"],
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/portal/src/favicon.ico",
-              "projects/portal/src/assets"
-            ],
-            "styles": ["projects/portal/src/styles.scss"],
-            "scripts": []
-          }
-        },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
