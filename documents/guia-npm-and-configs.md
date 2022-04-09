@@ -506,3 +506,7 @@ npm set-script pre-push "npm run test:ci && npm run sonar"
 ---
 
 <br>
+
+## 14. Migrando para o jest
+
+[migrate-the-Jest](./migrate-the-Jest.md).
