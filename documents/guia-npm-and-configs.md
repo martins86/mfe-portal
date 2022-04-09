@@ -484,7 +484,7 @@ sonar.sourceEncoding=UTF-8
 sonar.sources=projects
 
 sonar.exclusions=**/node_modules/**,**/*.js
-sonar.coverage.exclusions=**/*.js,**/src/main.ts,**/src/polyfills.ts,**/*environment*.ts,**/*module.ts
+sonar.coverage.exclusions=**/*.js,**/src/main.ts,**/src/polyfills.ts,**/*environment*.ts,**/*module.ts,**/jest.config.ts
 
 sonar.tests=app
 sonar.test.inclusions=**/*.spec.ts,**/*test.ts
