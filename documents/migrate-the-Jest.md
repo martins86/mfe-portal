@@ -115,19 +115,6 @@ module.exports = {
 
 ```
 
-```sh
-# Atualizando o tsconfig.app.json dentro de projects/portal
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../../out-tsc/app",
-    "types": []
-  },
-  "include": ["src/**/*.d.ts"]
-}
-
-```
-
 ## 04. Alterando os Scripts
 
 ```sh
