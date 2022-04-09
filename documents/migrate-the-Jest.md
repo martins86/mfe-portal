@@ -21,7 +21,7 @@ rm projects/portal/src/test.ts
 npm install @types/jest jest jest-preset-angular jest-junit --save-dev
 ```
 
-## Configurando Jest
+## 03. Configurando Jest
 
 ```sh
 # Removendo test do angular.json
@@ -115,7 +115,20 @@ module.exports = {
 
 ```
 
-## Alterando os Scripts
+```sh
+# Atualizando o tsconfig.app.json dentro de projects/portal
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../out-tsc/app",
+    "types": []
+  },
+  "include": ["src/**/*.d.ts"]
+}
+
+```
+
+## 04. Alterando os Scripts
 
 ```sh
 # Alterando scripts no package.json
