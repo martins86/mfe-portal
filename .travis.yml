@@ -10,20 +10,13 @@ dist: xenial
 services:
   - xvfb
 
-addons:
-  chrome: stable
-  sonarcloud:
-    organization: 'martins86'
-    token:
-      secure: $SONAR_CLOUD_TOKEN
-
 cache:
   yarn: true
   directories:
     - node_modules
 
 install:
-  - npm install -g @angular/cli@13.2.5 sonarqube-scanner
+  - npm install -g @angular/cli@13.2.5 sonarqube-scanner jest
   - npm install
 
 before_install:
@@ -38,17 +31,27 @@ script:
   - cd dist/portal
   - cp index.html 404.html
 
+
+addons:
+  chrome: stable
+  sonarcloud:
+    organization: 'martins86'
+    token:
+      secure: $SONAR_CLOUD_TOKEN
+
 branches:
   only:
     - master
 
 env:
   - EMBER_VERSION=release
+  - EMBER_VERSION=beta
 
 jobs:
   fast_finish: true
   allow_failures:
     - env: EMBER_VERSION=release
+    - env: EMBER_VERSION=beta
 
 deploy:
   provider: pages

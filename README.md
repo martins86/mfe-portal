@@ -49,13 +49,3 @@ mfe-portal is licensed under [MIT licensed](./LICENSE).
 [open-gitpod-url]: https://www.gitpod.io/#https://github.com/martins86/mfe-portal
 [travis-img]: https://app.travis-ci.com/martins86/mfe-portal.svg?branch=main
 [travis-url]: https://app.travis-ci.com/martins86/mfe-portal
-
-<<<<<<< Updated upstream
-[commit-img]: https://img.shields.io/github/last-commit/martins86/mfe-portal
-[husky-img]: https://img.shields.io/github/package-json/dependency-version/martins86/mfe-portal/dev/husky
-[jest-img]: https://img.shields.io/github/package-json/dependency-version/martins86/mfe-portal/dev/jest
-[lint-staged-img]: https://img.shields.io/github/package-json/dependency-version/martins86/mfe-portal/dev/lint-staged
-[npm-img]: https://img.shields.io/npm/v/npm
-=======
-
-> > > > > > > Stashed changes
