@@ -31,7 +31,6 @@ script:
   - cd dist/portal
   - cp index.html 404.html
 
-
 addons:
   chrome: stable
   sonarcloud:
