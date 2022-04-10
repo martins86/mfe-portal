@@ -49,3 +49,8 @@ mfe-portal is licensed under [MIT licensed](./LICENSE).
 [open-gitpod-url]: https://www.gitpod.io/#https://github.com/martins86/mfe-portal
 [travis-img]: https://app.travis-ci.com/martins86/mfe-portal.svg?branch=main
 [travis-url]: https://app.travis-ci.com/martins86/mfe-portal
+
+<br>
+<br>
+
+[⬆ Voltar ao topo](#micro-front-end-portal------)<br>

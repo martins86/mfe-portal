@@ -122,3 +122,8 @@ npm set-script test "jest --config ./jest.config.js --coverage --no-cache"
 npm set-script test:ci "npm run test -- --silent --coverageReporters=lcov"
 npm set-script test:dev "npm run test -- -o --watch --coverageReporters=text-summary"
 ```
+
+<br>
+<br>
+
+[⬆ Voltar ao topo](#migrando-do-karma-e-jasmine-para-o-jest)<br>
