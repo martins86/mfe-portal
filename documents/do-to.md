@@ -1,29 +1,18 @@
 # Coisas a Fazer no projeto
 
-- Criar pagina manutenção, remover conteúdo default
-
 <br>
 
-- Criar primeira release 0.0.1
+- Criar branch feature/translate
 
-<br>
-
-- Criar branch layout
-  - Adicionar um ng-app-portal.md (doc do cli ng)
-  - Copiar o layout roxo (pensar em outras cores)
   - Adicionar Translate
-  - Adicionar modo escuro e claro
+
+  https://github.com/ngx-translate/core
+  https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-angular-app-with-ngx-translate
+  https://stackblitz.com/github/ngx-translate/example
 
 <br>
 
-- Criar branch jasmine-jest (trocar o jasmine e karma pelo jest) <br>
-  - Referencias: <br>
-    https://dev.to/this-is-angular/migrate-from-jasmine-to-jest-and-testing-in-angular-286i
-    https://medium.com/angular-in-depth/migrate-your-angular-library-to-jest-faba9579591a
-
-<br>
-
-- Criar branch login
+- Criar branch feature/login
   - login com firebase
   - pagina e service, usar o interceptor
     - acessos / perfil
@@ -33,7 +22,7 @@
 
 <br>
 
-- Criar branch upload-excel-b3-movimentacoes
+- Criar branch feature/upload-excel-b3-movimentacoes
   - Criar pagina para upload de arquivo excel
 
 <br>
@@ -59,3 +48,8 @@ https://blog.theodo.com/2016/08/feature-toggling-in-angular-with-20-lines-of-cod
   - só com o que é exibido no (get, put e delete)
 - db-feature-toggle
   - get, post e delete
+
+<br>
+<br>
+
+[⬆ Voltar ao topo](#coisas-a-fazer-no-projeto)<br>
