@@ -21,7 +21,8 @@
       "program": "${workspaceFolder}/node_modules/.bin/jest",
       "windows": {
         "program": "${workspaceFolder}/node_modules/jest/bin/jest"
-      }
+      },
+      "port": 9229
     }
   ]
 }

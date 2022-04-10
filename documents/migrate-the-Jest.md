@@ -118,9 +118,14 @@ module.exports = {
 
 ```sh
 # Alterando scripts no package.json
-npm set-script test "jest --config ./jest.config.js --coverage --no-cache"
-npm set-script test:ci "npm run test -- --silent --coverageReporters=lcov"
-npm set-script test:dev "npm run test -- -o --watch --coverageReporters=text-summary"
+# Script que chama o config e passa um no-cache
+npm set-script test "jest --config ./jest.config.js --no-cache"
+
+# Roda no pipe e no pre-push
+npm set-script test:ci "npm run test -- --verbose"
+
+# Executa os testes em dev, roda apenas o que foi alterado e fica aguardando alterações
+npm set-script test:dev "npm run test -- -o --watch --verbose"
 ```
 
 <br>
