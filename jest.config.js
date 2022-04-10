@@ -1,23 +1,17 @@
 module.exports = {
   globalSetup: 'jest-preset-angular/global-setup',
   projects: ['<rootDir>/projects/portal'],
+  displayName: 'MFE-PORTAL',
   transformIgnorePatterns: ['^.+\\.js$'],
   collectCoverageFrom: [
     'src/app/**/*.ts',
     '!**/**.module.ts',
     '!**/**.model.ts',
   ],
+  collectCoverage: true,
   coverageDirectory: '<rootDir>/coverage',
-  reporters: [
-    'default',
-    [
-      'jest-junit',
-      {
-        outputDirectory: '<rootDir>/coverage',
-        outputName: 'mfe-portal-app.xml',
-      },
-    ],
-  ],
+  coverageReporters: ['lcov', 'text-summary'],
+  reporters: ['default'],
   coverageThreshold: {
     global: {
       branches: 80,
