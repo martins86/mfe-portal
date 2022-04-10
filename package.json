@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "prettier-write": "npx prettier --write --ignore-unknown .",
     "prettier-check": "npx prettier --check .",
-    "test:ci": "npm run test -- --silent --colors --coverageReporters=text",
+    "test:ci": "npm run test -- --silent --coverageReporters=lcov",
     "pre-commit": "npx --no-install lint-staged && npm run lint",
     "pre-push": "npm run test:ci && npm run sonar",
     "postinstall": "npx husky install && chmod ug+x .husky/*",

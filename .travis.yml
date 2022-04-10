@@ -12,6 +12,7 @@ services:
 
 cache:
   yarn: true
+  npm: false
   directories:
     - node_modules
 
@@ -44,13 +45,11 @@ branches:
 
 env:
   - EMBER_VERSION=release
-  - EMBER_VERSION=beta
 
 jobs:
   fast_finish: true
   allow_failures:
     - env: EMBER_VERSION=release
-    - env: EMBER_VERSION=beta
 
 deploy:
   provider: pages

@@ -7,7 +7,6 @@ module.exports = {
     '!**/**.module.ts',
     '!**/**.model.ts',
   ],
-  coverageReporters: ['lcov'],
   coverageDirectory: '<rootDir>/coverage',
   reporters: [
     'default',

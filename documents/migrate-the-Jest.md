@@ -57,14 +57,13 @@ module.exports = {
     "!**/**.module.ts",
     "!**/**.model.ts",
   ],
-  coverageReporters: ["lcov"],
-  coverageDirectory: "<rootDir>/coverage/",
+  coverageDirectory: "<rootDir>/coverage",
   reporters: [
     "default",
     [
       "jest-junit",
       {
-        outputDirectory: "./coverage",
+        outputDirectory: "<rootDir>/coverage",
         outputName: "mfe-portal-app.xml",
       },
     ],
@@ -120,6 +119,6 @@ module.exports = {
 ```sh
 # Alterando scripts no package.json
 npm set-script test "jest --config ./jest.config.js --coverage --no-cache"
-npm set-script test:ci "npm run test -- --silent --colors --coverageReporters=text"
+npm set-script test:ci "npm run test -- --silent --coverageReporters=lcov"
 npm set-script test:dev "npm run test -- -o --watch --coverageReporters=text-summary"
 ```
