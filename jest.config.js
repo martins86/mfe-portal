@@ -8,13 +8,13 @@ module.exports = {
     '!**/**.model.ts',
   ],
   coverageReporters: ['lcov'],
-  coverageDirectory: '<rootDir>/coverage/',
+  coverageDirectory: '<rootDir>/coverage',
   reporters: [
     'default',
     [
       'jest-junit',
       {
-        outputDirectory: './coverage',
+        outputDirectory: '<rootDir>/coverage',
         outputName: 'mfe-portal-app.xml',
       },
     ],
