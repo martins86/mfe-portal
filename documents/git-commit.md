@@ -65,6 +65,11 @@ npm run release
 
 <br>
 
-# Extenções do VSCode
+# Extensões do VSCode
 
 - vscode conventional commits - [Link](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits)
+
+<br>
+<br>
+
+[⬆ Voltar ao topo](#commits-na-pratica)<br>
