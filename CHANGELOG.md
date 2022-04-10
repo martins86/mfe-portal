@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/martins86/mfe-portal/compare/v0.0.2...v0.0.3) (2022-04-10)
+
+### Features
+
+- adicionando mais badges ([4296e7d](https://github.com/martins86/mfe-portal/commit/4296e7d873239b698f9eeb1cb34acc80721a76df))
+- **jest:** adicionando melhorias a exec ([2adf8b9](https://github.com/martins86/mfe-portal/commit/2adf8b92a12a9dc96541997d6cac579c632e1ad0))
+
+### Bug Fixes
+
+- corrigindo build ([03cc98e](https://github.com/martins86/mfe-portal/commit/03cc98ebc671c8ad3f3ec4021e625ee7b000b257))
+- **jest:** corrigindo alguns testes ([cd4aab3](https://github.com/martins86/mfe-portal/commit/cd4aab3e1404f41b334e9d9e3720ff09918d5887))
+- path coverage ([c72d521](https://github.com/martins86/mfe-portal/commit/c72d521cda62f0fb6843be26b7007cb9a98409d5))
+- sonar coverage ([fe61292](https://github.com/martins86/mfe-portal/commit/fe61292ba169463841d1fb963dfd0b7961a059a6))
+- **sonar:** corrigindo coverage ([b655080](https://github.com/martins86/mfe-portal/commit/b65508053fdfde3e3439c4bec747590ef73689bc))
+- travis-ci e melhorias ([fea73d3](https://github.com/martins86/mfe-portal/commit/fea73d30e5b4b61e165f037563f06c818e61e3de))
+- **travis:** resolvendo erro no xvfb ([d9c5cc2](https://github.com/martins86/mfe-portal/commit/d9c5cc2e39364ec7928ec3a84ff6afbc2fe09c0c))
+
 ### [0.0.2](https://github.com/martins86/mfe-portal/compare/v0.0.1...v0.0.2) (2022-03-23)
 
 ### Features
