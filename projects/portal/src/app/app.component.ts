@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 
 import { TranslateService } from '@ngx-translate/core'
 
@@ -6,10 +6,16 @@ import { TranslateService } from '@ngx-translate/core'
   selector: 'app-root',
   template: `<router-outlet></router-outlet>`,
 })
-export class AppComponent {
-  constructor(private translate: TranslateService) {
-    translate.addLangs(['en', 'pt'])
-    translate.setDefaultLang('pt')
-    translate.use('pt')
+export class AppComponent implements OnInit {
+  constructor(private translateService: TranslateService) {}
+
+  ngOnInit() {
+    this.setTranslateDefault()
+  }
+
+  setTranslateDefault(): void {
+    this.translateService.addLangs(['en', 'pt'])
+    this.translateService.setDefaultLang('pt')
+    this.translateService.use('pt')
   }
 }
