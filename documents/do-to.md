@@ -9,6 +9,7 @@
   https://github.com/ngx-translate/core
   https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-angular-app-with-ngx-translate
   https://stackblitz.com/github/ngx-translate/example
+  https://www.youtube.com/watch?v=oxigDfDfD8Q&ab_channel=ScalableScripts
 
 <br>
 

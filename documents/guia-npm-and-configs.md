@@ -511,3 +511,27 @@ npm set-script pre-push "npm run test:ci && npm run sonar"
 ## 14. Migrando para o jest
 
 [migrate-the-Jest](./migrate-the-Jest.md).
+
+<br>
+
+---
+
+<br>
+
+## 15. Adicionando o translate
+
+```sh
+# Instalando o ngx translate e test
+npm i @ngx-translate/core @ngx-translate/http-loader @ngx-translate-testing
+```
+
+<br>
+
+---
+
+<br>
+
+<br>
+<br>
+
+[⬆ Voltar ao topo](#comandos-npm-e-configuracoes)<br>

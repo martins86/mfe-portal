@@ -49,34 +49,26 @@ npm install @types/jest jest jest-preset-angular jest-junit --save-dev
 module.exports = {
   globalSetup: 'jest-preset-angular/global-setup',
   projects: ['<rootDir>/projects/portal'],
-  transformIgnorePatterns: [
-    "^.+\\.js$"
-  ],
+  displayName: 'MFE-PORTAL',
+  transformIgnorePatterns: ['^.+\\.js$'],
   collectCoverageFrom: [
-    "src/app/**/*.ts",
-    "!**/**.module.ts",
-    "!**/**.model.ts",
+    'src/app/**/*.ts',
+    '!**/**.module.ts',
+    '!**/**.model.ts',
   ],
-  coverageDirectory: "<rootDir>/coverage",
-  reporters: [
-    "default",
-    [
-      "jest-junit",
-      {
-        outputDirectory: "<rootDir>/coverage",
-        outputName: "mfe-portal-app.xml",
-      },
-    ],
-  ],
+  collectCoverage: true,
+  coverageDirectory: '<rootDir>/coverage',
+  coverageReporters: ['lcov', 'text-summary'],
+  reporters: ['default'],
   coverageThreshold: {
     global: {
       branches: 80,
       functions: 80,
       lines: 80,
-      statements: -10
-    }
-  }
-};
+      statements: -10,
+    },
+  },
+}
 
 ```
 
@@ -102,14 +94,10 @@ module.exports = {
   "compilerOptions": {
     "esModuleInterop": true,
     "outDir": "../../out-tsc/spec",
-    "types": [
-      "jest"
-    ]
+    "types": ["jest", "node"],
+    "emitDecoratorMetadata": true
   },
-  "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
-  ]
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }
 
 ```
