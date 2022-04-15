@@ -3,5 +3,13 @@
     "bottom_bar": {
       "text_copyright": "All rights reserved"
     }
+  },
+  "pages": {
+    "not_found": {
+      "text_error_404": "ERROR 404!! - Content not found."
+    },
+    "maintenance": {
+      "text_back_soon": "the site is in maintenance mode and will be back soon!"
+    }
   }
 }
