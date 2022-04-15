@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http'
 
+import { TranslateModule } from '@ngx-translate/core'
+
 import { DefaultRoutingModule } from './default-routing.module'
 import { DefaultComponent } from './default.component'
 
@@ -42,6 +44,7 @@ const pagesModules = [MaintenanceModule, NotFoundModule]
     RouterModule,
     HttpClientModule,
     DefaultRoutingModule,
+    TranslateModule.forChild(),
     ...materialModules,
     ...pagesModules,
   ],
