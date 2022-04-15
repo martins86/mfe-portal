@@ -56,7 +56,7 @@ describe('BottomBarComponent', () => {
           RouterTestingModule,
           TranslateTestingModule.withTranslations(
             ConstantsTranslations.englishLanguage,
-            require(ConstantsTranslations.englishTranslations)
+            require(`./../../../../assets/i18n/${ConstantsTranslations.englishTranslations}`)
           ),
         ],
       }).compileComponents()
@@ -87,7 +87,7 @@ describe('BottomBarComponent', () => {
           RouterTestingModule,
           TranslateTestingModule.withTranslations(
             ConstantsTranslations.portugueseLanguage,
-            require(ConstantsTranslations.portugueseTranslations)
+            require(`./../../../../assets/i18n/${ConstantsTranslations.portugueseTranslations}`)
           ),
         ],
       }).compileComponents()
