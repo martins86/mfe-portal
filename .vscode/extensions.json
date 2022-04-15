@@ -15,6 +15,7 @@
     "sonarsource.sonarlint-vscode",
     "shardulm94.trailing-spaces",
     "tabnine.tabnine-vscode",
-    "Orta.vscode-jest"
+    "orta.vscode-jest",
+    "FerrierBenjamin.fold-unfold-all-icone"
   ]
 }
