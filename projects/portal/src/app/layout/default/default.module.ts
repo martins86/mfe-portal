@@ -34,6 +34,7 @@ const layoutComponents = [TopBarComponent, LeftBarComponent, BottomBarComponent]
 
 import { MaintenanceModule } from '../../pages/maintenance/maintenance.module'
 import { NotFoundModule } from '../../pages/not-found/not-found.module'
+import { DashboardModule } from '../../pages/dashboard/dashboard.module'
 
 const pagesModules = [MaintenanceModule, NotFoundModule]
 
@@ -47,6 +48,7 @@ const pagesModules = [MaintenanceModule, NotFoundModule]
     TranslateModule.forChild(),
     ...materialModules,
     ...pagesModules,
+    DashboardModule,
   ],
 })
 export class DefaultModule {}

@@ -10,8 +10,8 @@
 <ng-template #siteOn>
   <app-top-bar (emitToggleLeftBar)="toggleLeftBar()"></app-top-bar>
 
-  <mat-drawer-container [hasBackdrop]="false">
-    <mat-drawer mode="over" [opened]="leftBarOpen">
+  <mat-drawer-container [hasBackdrop]="false" autosize>
+    <mat-drawer mode="side" [opened]="leftBarOpen">
       <app-left-bar (emitCloseLeftBar)="closeLeftBar()"></app-left-bar>
     </mat-drawer>
 

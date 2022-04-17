@@ -10,8 +10,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'maintenance',
-        pathMatch: 'full',
+        loadChildren: () =>
+          import('@portal/pages/dashboard/dashboard.module').then(
+            (module) => module.DashboardModule
+          ),
       },
       {
         path: 'maintenance',
