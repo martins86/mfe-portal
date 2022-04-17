@@ -17,12 +17,32 @@ ng g c layout/default/bottom-bar
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('@portal/layout/default/default.module').then(
-        (module) => module.DefaultModule
-      ),
+    component: DefaultComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('@portal/pages/dashboard/dashboard.module').then(
+            (module) => module.DashboardModule
+          ),
+      },
+      {
+        path: 'maintenance',
+        loadChildren: () =>
+          import('@portal/pages/maintenance/maintenance.module').then(
+            (module) => module.MaintenanceModule
+          ),
+      },
+      {
+        path: '**',
+        loadChildren: () =>
+          import('@portal/pages/not-found/not-found.module').then(
+            (module) => module.NotFoundModule
+          ),
+      },
+    ],
   },
-];
+]
 ```
 
 ## Criando a página de manutenção
@@ -33,27 +53,13 @@ ng g m pages/maintenance/ --module layout/default --routing
 ng g c pages/maintenance/
 ```
 
-## Configurando rota para pagina de manutenção (default-routing.module.ts)
+## Configurando rota para pagina de manutenção
 
 ```sh
 const routes: Routes = [
   {
     path: '',
-    component: DefaultComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'maintenance',
-        pathMatch: 'full',
-      },
-      {
-        path: 'maintenance',
-        loadChildren: () =>
-          import('@portal/pages/maintenance/maintenance.module').then(
-            (module) => module.MaintenanceModule
-          ),
-      },
-    ]
+    component: MaintenanceComponent,
   },
 ]
 ```
@@ -72,28 +78,26 @@ ng g c pages/not-found/
 const routes: Routes = [
   {
     path: '',
-    component: DefaultComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'maintenance',
-        pathMatch: 'full',
-      },
-      {
-        path: 'maintenance',
-        loadChildren: () =>
-          import('@portal/pages/maintenance/maintenance.module').then(
-            (module) => module.MaintenanceModule
-          ),
-      },
-      {
-        path: '**',
-        loadChildren: () =>
-          import('@portal/pages/not-found/not-found.module').then(
-            (module) => module.NotFoundModule
-          ),
-      },
-    ]
+    component: NotFoundComponent,
+  },
+]
+```
+
+## Criando a página dashboard
+
+```sh
+ng g m pages/dashboard/ --module layout/default --routing
+
+ng g c pages/maintenance/
+```
+
+## Configurando rota para pagina dashboard (dashboard-routing.module.ts)
+
+```sh
+const routes: Routes = [
+  {
+    path: '',
+    component: DashboardComponent,
   },
 ]
 ```
