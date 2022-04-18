@@ -490,7 +490,6 @@ sonar.tests=./projects/portal/src
 sonar.test.inclusions=**/*.spec.ts,**/*test.ts
 
 sonar.typescript.tsconfigPath=tsconfig.json
-
 sonar.javascript.lcov.reportPaths=coverage/lcov.info
 
 ```

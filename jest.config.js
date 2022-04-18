@@ -7,6 +7,8 @@ module.exports = {
     'src/app/**/*.ts',
     '!**/**.module.ts',
     '!**/**.model.ts',
+    '!**/__mocks__/**',
+    '!**/__stubs__/**',
   ],
   collectCoverage: true,
   coverageDirectory: '<rootDir>/coverage',
