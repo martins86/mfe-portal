@@ -4,10 +4,15 @@ import { DefinitionsService } from './definitions.service'
 
 describe('DefinitionsService', () => {
   let service: DefinitionsService
+  let sessionStorage: Storage
 
   beforeEach(() => {
     TestBed.configureTestingModule({})
     service = TestBed.inject(DefinitionsService)
+  })
+
+  beforeEach(() => {
+    sessionStorage = window.sessionStorage
   })
 
   it('should be created', () => {
@@ -26,25 +31,26 @@ describe('DefinitionsService', () => {
       service.setDefinitionDefault('pt', 'light-theme')
 
       // Assert
-      const sessionStorage = window.sessionStorage.getItem('user-definitions')
-      expect(sessionStorage).toBe(definitionDefault)
+      expect(sessionStorage.getItem('user-definitions')).toBe(definitionDefault)
     })
   })
 
   describe('Testing updateDefinitionItem', () => {
     it('should update item in sessionStorage', () => {
       // Arrange
-      const definitionDefault = JSON.stringify({
-        teste: 'este é um teste UpdateItem',
+      const alternateDefinition = JSON.stringify({
+        language: 'en',
+        theme: 'dark-theme',
       })
-      service.userDefinitionSession = {}
 
       // Act
-      service.updateDefinitionItem('teste', 'este é um teste UpdateItem')
+      service.updateDefinitionItem('language', 'en')
+      service.updateDefinitionItem('theme', 'dark-theme')
 
       // Assert
-      const sessionStorage = window.sessionStorage.getItem('user-definitions')
-      expect(sessionStorage).toBe(definitionDefault)
+      expect(sessionStorage.getItem('user-definitions')).toBe(
+        alternateDefinition
+      )
     })
   })
 
@@ -52,17 +58,16 @@ describe('DefinitionsService', () => {
     it('should get item in sessionStorage', () => {
       // Arrange
       const definitionDefault = JSON.stringify({
-        teste: 'este é um teste getItem',
+        language: 'pt',
+        theme: 'light-theme',
       })
-      service.userDefinitionSession = {}
-      service.updateDefinitionItem('teste', 'este é um teste getItem')
+      service.setDefinitionDefault('pt', 'light-theme')
 
       // Act
       service.getDefinitions()
 
       // Assert
-      const sessionStorage = window.sessionStorage.getItem('user-definitions')
-      expect(sessionStorage).toBe(definitionDefault)
+      expect(sessionStorage.getItem('user-definitions')).toBe(definitionDefault)
     })
   })
 })
