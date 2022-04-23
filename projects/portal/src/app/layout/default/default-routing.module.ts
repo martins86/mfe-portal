@@ -11,21 +11,21 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('@portal/pages/dashboard/dashboard.module').then(
+          import('./../../pages/dashboard/dashboard.module').then(
             (module) => module.DashboardModule
           ),
       },
       {
         path: 'maintenance',
         loadChildren: () =>
-          import('@portal/pages/maintenance/maintenance.module').then(
+          import('./../../pages/maintenance/maintenance.module').then(
             (module) => module.MaintenanceModule
           ),
       },
       {
         path: '**',
         loadChildren: () =>
-          import('@portal/pages/not-found/not-found.module').then(
+          import('./../../pages/not-found/not-found.module').then(
             (module) => module.NotFoundModule
           ),
       },

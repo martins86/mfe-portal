@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('@portal/layout/default/default.module').then(
+      import('./layout/default/default.module').then(
         (module) => module.DefaultModule
       ),
   },
