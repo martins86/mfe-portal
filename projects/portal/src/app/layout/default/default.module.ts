@@ -38,6 +38,10 @@ import { DashboardModule } from '../../pages/dashboard/dashboard.module'
 
 const pagesModules = [MaintenanceModule, NotFoundModule]
 
+import { SelectLanguageModule } from '../../shared/components/select-language/select-language.module'
+
+const componentsModules = [SelectLanguageModule]
+
 @NgModule({
   declarations: [DefaultComponent, ...layoutComponents],
   imports: [
@@ -47,6 +51,7 @@ const pagesModules = [MaintenanceModule, NotFoundModule]
     DefaultRoutingModule,
     TranslateModule.forChild(),
     ...materialModules,
+    ...componentsModules,
     ...pagesModules,
     DashboardModule,
   ],

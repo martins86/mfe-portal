@@ -1,0 +1,19 @@
+<div class="select-language">
+  <button mat-button [matMenuTriggerFor]="selectLanguage">
+    <mat-icon aria-hidden="false" aria-label="translate icon"
+      >translate</mat-icon
+    >
+    {{ textLanguage }}
+  </button>
+  <mat-menu #selectLanguage="matMenu">
+    <ng-container *ngFor="let languageOption of languageOptions">
+      <button
+        title="languageOption.textName"
+        mat-menu-item
+        (click)="changeLanguage(languageOption.language)"
+      >
+        {{ languageOption.textName }}
+      </button>
+    </ng-container>
+  </mat-menu>
+</div>
