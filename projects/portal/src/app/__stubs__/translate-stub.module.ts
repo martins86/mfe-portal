@@ -16,7 +16,7 @@ import { Observable, of } from 'rxjs'
 const translations: any = {}
 
 class FakeLoader implements TranslateLoader {
-  getTranslation(lang: string): Observable<any> {
+  getTranslation(_lang: string): Observable<any> {
     return of(translations)
   }
 }
@@ -27,7 +27,7 @@ class FakeLoader implements TranslateLoader {
 export class TranslatePipeMock implements PipeTransform {
   public name = 'translate'
 
-  public transform(query: string, ...args: any[]): any {
+  public transform(query: string, ..._args: any[]): any {
     return query
   }
 }
@@ -37,7 +37,7 @@ export class TranslateServiceStub {
   public onLangChange = new EventEmitter<any>()
   public onTranslationChange = new EventEmitter<any>()
   public onDefaultLangChange = new EventEmitter<any>()
-  public addLangs(langs: string[]) {
+  public addLangs(_langs: string[]) {
     return
   }
   public getLangs() {
@@ -49,7 +49,7 @@ export class TranslateServiceStub {
   public getBrowserCultureLang() {
     return ''
   }
-  public use(lang: string) {
+  public use(_lang: string) {
     return null
   }
   public get<T>(key: T): Observable<T> {
