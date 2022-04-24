@@ -3,9 +3,10 @@ import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+import { TranslateStubModule } from '../../__stubs__/translate-stub.module'
+
 import { DefaultModule } from './default.module'
 import { DefaultComponent } from './default.component'
-import { TranslateStubModule } from './../../__stubs__/translate-stub.module'
 
 describe('DefaultComponent', () => {
   let component: DefaultComponent
@@ -40,20 +41,8 @@ describe('DefaultComponent', () => {
       expect(component.leftBarOpen).toBe(false)
     })
 
-    it('should the leftBarOpen value be equal to false', () => {
-      // Arrange
-      component.leftBarOpen = true
-
-      // Act
-      component.toggleLeftBar()
-
-      // Assert
-      expect(component.leftBarOpen).toBe(false)
-    })
-
     it('should the leftBarOpen value be equal to true', () => {
-      // Arrange
-      component.leftBarOpen = false
+      expect(component.leftBarOpen).toBe(false)
 
       // Act
       component.toggleLeftBar()
@@ -61,12 +50,25 @@ describe('DefaultComponent', () => {
       // Assert
       expect(component.leftBarOpen).toBe(true)
     })
+
+    it('should the leftBarOpen value be equal to false', () => {
+      // Arrange
+      component.leftBarOpen = true
+      expect(component.leftBarOpen).toBe(true)
+
+      // Act
+      component.toggleLeftBar()
+
+      // Assert
+      expect(component.leftBarOpen).toBe(false)
+    })
   })
 
   describe('Testing closeLeftBar', () => {
     it('should the leftBarOpen value be equal to false', () => {
       // Arrange
       component.leftBarOpen = true
+      expect(component.leftBarOpen).toBe(true)
 
       // Act
       component.closeLeftBar()
@@ -78,6 +80,7 @@ describe('DefaultComponent', () => {
     it('should the value of leftBarOpen remain equal to false', () => {
       // Arrange
       component.leftBarOpen = false
+      expect(component.leftBarOpen).toBe(false)
 
       // Act
       component.closeLeftBar()
