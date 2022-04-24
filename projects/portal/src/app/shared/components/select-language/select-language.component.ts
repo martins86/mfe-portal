@@ -15,13 +15,17 @@ export class SelectLanguageComponent {
 
   constructor(private definitionsService: DefinitionsService) {
     this.session = this.definitionsService.getDefinitions()
-    this.textLanguage = this.changeTextLanguage(this.session.language)
+    this.textLanguage = this.changeTextLanguage(this.session?.language)
   }
 
   changeLanguage(lang: string): void {
     this.definitionsService.updateDefinitionItem('language', lang)
     this.textLanguage = this.changeTextLanguage(lang)
     this.fixRemoveClass()
+    this.reloadPage()
+  }
+
+  reloadPage(): void {
     window.location.reload()
   }
 
@@ -34,6 +38,6 @@ export class SelectLanguageComponent {
     const index = this.languageOptions.findIndex(
       (item) => item.language === lang
     )
-    return this.languageOptions[index].textName.slice(5)
+    return this.languageOptions[index]?.textName.slice(5)
   }
 }
