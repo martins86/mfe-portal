@@ -2,6 +2,17 @@
   "layout": {
     "bottom_bar": {
       "text_copyright": "Todos os direitos reservados"
+    },
+    "left_bar": {
+      "text_label_bar": {
+        "pages": "Páginas",
+        "theme": "Tema",
+        "theme_options": "Claro/Escuro"
+      },
+      "text_menu_pages": {
+        "page_dashboard": "Painel",
+        "page_profile": "Perfil"
+      }
     }
   },
   "pages": {
@@ -10,6 +21,9 @@
     },
     "maintenance": {
       "text_back_soon": "o site está em modo manutenção e retornara em breve!"
+    },
+    "dashboard": {
+      "dashboard_title": "Painel"
     }
   }
 }

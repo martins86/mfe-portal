@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
+import { TranslateStubModule } from '../../__stubs__/translate-stub.module'
+
 import { DashboardComponent } from './dashboard.component'
 import { DashboardModule } from './dashboard.module'
 
@@ -10,7 +12,7 @@ describe('DashboardComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DashboardComponent],
-      imports: [DashboardModule],
+      imports: [DashboardModule, TranslateStubModule],
     }).compileComponents()
   })
 

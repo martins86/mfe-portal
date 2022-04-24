@@ -2,6 +2,17 @@
   "layout": {
     "bottom_bar": {
       "text_copyright": "All rights reserved"
+    },
+    "left_bar": {
+      "text_label_bar": {
+        "pages": "Pages",
+        "theme": "Theme",
+        "theme_options": "Light/Dark"
+      },
+      "text_menu_pages": {
+        "page_dashboard": "Dashboard",
+        "page_profile": "Profile"
+      }
     }
   },
   "pages": {
@@ -10,6 +21,9 @@
     },
     "maintenance": {
       "text_back_soon": "the site is in maintenance mode and will be back soon!"
+    },
+    "dashboard": {
+      "dashboard_title": "Dashboard"
     }
   }
 }
