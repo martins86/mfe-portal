@@ -1,7 +1,4 @@
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing'
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 import { HttpClient } from '@angular/common/http'
@@ -13,13 +10,16 @@ import {
 } from '@ngx-translate/core'
 
 import { AppModule, HttpLoaderFactory } from './app.module'
+import { ThemeService } from './shared/services/service-theme/theme.service'
+import { DefinitionsService } from './shared/services/service-definitions/definitions.service'
 import { AppComponent } from './app.component'
 
 describe('AppComponent', () => {
   let app: AppComponent
   let fixture: ComponentFixture<AppComponent>
   let translateService: TranslateService
-  let httpTesting: HttpTestingController
+  let themeService: ThemeService
+  let definitionsService: DefinitionsService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -36,10 +36,11 @@ describe('AppComponent', () => {
           },
         }),
       ],
-      providers: [TranslateService],
+      providers: [TranslateService, ThemeService, DefinitionsService],
     }).compileComponents()
     translateService = TestBed.inject(TranslateService)
-    httpTesting = TestBed.inject(HttpTestingController)
+    themeService = TestBed.inject(ThemeService)
+    definitionsService = TestBed.inject(DefinitionsService)
   })
 
   beforeEach(() => {
@@ -53,41 +54,113 @@ describe('AppComponent', () => {
   })
 
   describe('Testing ngOnInit', () => {
-    it('should call setTranslateDefault', () => {
+    it('should call firstLoadApp', () => {
       // Arrange
-      jest.spyOn(app, 'setTranslateDefault')
+      jest.spyOn(app, 'firstLoadApp')
 
       // Act
       app.ngOnInit()
 
       // Assert
-      expect(app.setTranslateDefault).toHaveBeenCalled()
+      expect(app.firstLoadApp).toHaveBeenCalled()
+    })
+  })
+
+  describe('Testing firstLoadApp', () => {
+    it('should call firstLoadApp with session null and set default values', () => {
+      // Arrange
+      app.session = null
+      const spy = jest.spyOn(app, 'setDefinitionDefault')
+
+      // Act
+      app.firstLoadApp()
+
+      // Assert
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('pt', 'light-theme')
+      spy.mockRestore()
+    })
+
+    it('should call firstLoadApp with session "en" and "dark-theme"', () => {
+      // Arrange
+      app.session = { language: 'en', theme: 'dark-theme' }
+      const spy = jest.spyOn(app, 'setDefinitionDefault')
+
+      // Act
+      app.firstLoadApp()
+
+      // Assert
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('en', 'dark-theme')
+      spy.mockRestore()
     })
   })
 
   describe('Testing setTranslateDefault', () => {
-    it('should call addLangs and set langs "en, pt"', () => {
+    it('should call setThemeSession and set theme "dark-theme"', () => {
       // Arrange
-      const langs = ['en', 'pt']
+      const spy = jest.spyOn(themeService, 'setThemeSession')
+
+      // Act
+      app.setDefinitionDefault('en', 'dark-theme')
 
       // Assert
-      expect(translateService.getLangs()).toEqual(langs)
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('dark-theme')
+      spy.mockRestore()
     })
 
-    it('should call setDefaultLang and set default "pt"', () => {
+    it('should call setDefinitionDefault with language "pt" and theme "dark-theme"', () => {
       // Arrange
-      const lang = 'pt'
+      const spy = jest.spyOn(definitionsService, 'setDefinitionDefault')
+
+      // Act
+      app.setDefinitionDefault('pt', 'dark-theme')
 
       // Assert
-      expect(translateService.getDefaultLang()).toEqual(lang)
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('pt', 'dark-theme')
+      spy.mockRestore()
     })
 
-    it('should call use and set use "pt"', () => {
+    it('should call addLangs with languages "pt" and "en"', () => {
       // Arrange
-      const langs = 'pt'
+      const langs = ['pt', 'en']
+      const spy = jest.spyOn(translateService, 'addLangs')
+
+      // Act
+      app.setDefinitionDefault('pt', 'dark-theme')
 
       // Assert
-      expect(translateService.currentLang).toEqual(langs)
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith(langs)
+      spy.mockRestore()
+    })
+
+    it('should call setDefaultLang with language "pt"', () => {
+      // Arrange
+      const spy = jest.spyOn(translateService, 'setDefaultLang')
+
+      // Act
+      app.setDefinitionDefault('pt', 'dark-theme')
+
+      // Assert
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('pt')
+      spy.mockRestore()
+    })
+
+    it('should call use with language "en"', () => {
+      // Arrange
+      const spy = jest.spyOn(translateService, 'use')
+
+      // Act
+      app.setDefinitionDefault('en', 'dark-theme')
+
+      // Assert
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveBeenCalledWith('en')
+      spy.mockRestore()
     })
   })
 })
