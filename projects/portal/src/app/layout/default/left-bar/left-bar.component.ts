@@ -8,6 +8,8 @@ import {
 import { FormControl } from '@angular/forms'
 import { OverlayContainer } from '@angular/cdk/overlay'
 
+import packageJson from './../../../../../../../package.json'
+
 import { ThemeService } from './../../../shared/services/service-theme/theme.service'
 import { ConstantsThemes } from './../../../utils/constants'
 
@@ -17,6 +19,8 @@ import { ConstantsThemes } from './../../../utils/constants'
   styleUrls: ['./left-bar.component.scss'],
 })
 export class LeftBarComponent implements OnInit {
+  versionApp: string
+
   @Output()
   emitCloseLeftBar: EventEmitter<string> = new EventEmitter()
 
@@ -27,7 +31,9 @@ export class LeftBarComponent implements OnInit {
   constructor(
     private overlay: OverlayContainer,
     private themeService: ThemeService
-  ) {}
+  ) {
+    this.versionApp = packageJson.version
+  }
 
   ngOnInit(): void {
     this.toggleThemes()

@@ -7,7 +7,8 @@
       "text_label_bar": {
         "pages": "Pages",
         "theme": "Theme",
-        "theme_options": "Light/Dark"
+        "theme_options": "Light/Dark",
+        "version_app": "Version"
       },
       "text_menu_pages": {
         "page_dashboard": "Dashboard",
