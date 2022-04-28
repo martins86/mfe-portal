@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { DefinitionsService } from '../../services/service-definitions/definitions.service'
@@ -15,6 +16,7 @@ describe('SelectLanguageComponent', () => {
       declarations: [SelectLanguageComponent],
       imports: [SelectLanguageModule],
       providers: [DefinitionsService],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents()
     definitionsService = TestBed.inject(DefinitionsService)
   })

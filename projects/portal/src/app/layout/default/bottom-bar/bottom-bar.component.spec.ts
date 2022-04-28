@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { RouterTestingModule } from '@angular/router/testing'
-import { DebugElement, Predicate } from '@angular/core'
+import { DebugElement, NO_ERRORS_SCHEMA, Predicate } from '@angular/core'
 import { By } from '@angular/platform-browser'
 
 import { TranslateTestingModule } from 'ngx-translate-testing'
@@ -35,6 +35,7 @@ describe('BottomBarComponent', () => {
       await TestBed.configureTestingModule({
         declarations: [BottomBarComponent],
         imports: [DefaultModule, RouterTestingModule, TranslateStubModule],
+        schemas: [NO_ERRORS_SCHEMA],
       }).compileComponents()
     })
 

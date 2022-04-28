@@ -13,6 +13,7 @@ import { AppModule, HttpLoaderFactory } from './app.module'
 import { ThemeService } from './shared/services/service-theme/theme.service'
 import { DefinitionsService } from './shared/services/service-definitions/definitions.service'
 import { AppComponent } from './app.component'
+import { NO_ERRORS_SCHEMA } from '@angular/core'
 
 describe('AppComponent', () => {
   let app: AppComponent
@@ -37,6 +38,7 @@ describe('AppComponent', () => {
         }),
       ],
       providers: [TranslateService, ThemeService, DefinitionsService],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents()
     translateService = TestBed.inject(TranslateService)
     themeService = TestBed.inject(ThemeService)

@@ -1,4 +1,4 @@
-import { DebugElement, Predicate } from '@angular/core'
+import { DebugElement, NO_ERRORS_SCHEMA, Predicate } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { By } from '@angular/platform-browser'
 import { RouterTestingModule } from '@angular/router/testing'
@@ -35,6 +35,7 @@ describe('NotFoundComponent', () => {
       await TestBed.configureTestingModule({
         declarations: [NotFoundComponent],
         imports: [NotFoundModule, RouterTestingModule, TranslateStubModule],
+        schemas: [NO_ERRORS_SCHEMA],
       }).compileComponents()
     })
 

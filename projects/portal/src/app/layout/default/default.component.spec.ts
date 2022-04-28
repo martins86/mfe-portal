@@ -7,6 +7,7 @@ import { TranslateStubModule } from '../../__stubs__/translate-stub.module'
 
 import { DefaultModule } from './default.module'
 import { DefaultComponent } from './default.component'
+import { NO_ERRORS_SCHEMA } from '@angular/core'
 
 describe('DefaultComponent', () => {
   let component: DefaultComponent
@@ -22,6 +23,7 @@ describe('DefaultComponent', () => {
         HttpClientTestingModule,
         TranslateStubModule,
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents()
   })
 
