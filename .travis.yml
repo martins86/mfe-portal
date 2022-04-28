@@ -56,7 +56,6 @@ jobs:
 deploy:
   provider: pages
   strategy: git
-  cleanup: true
   github_token: $GITHUB_TOKEN_TRAVIS
   local_dir: dist/portal
   keep_history: true
