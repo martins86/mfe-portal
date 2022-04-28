@@ -3,7 +3,7 @@ language: node_js
 os: linux
 
 node_js:
-  - 17
+  - 18
 
 dist: xenial
 
@@ -53,7 +53,6 @@ jobs:
 
 deploy:
   provider: pages
-  cleanup: true
   github_token: $GITHUB_TOKEN_TRAVIS
   local_dir: dist/portal
   keep_history: true
