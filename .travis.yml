@@ -25,9 +25,9 @@ before_install:
   - export NODE_OPTIONS=--openssl-legacy-provider
 
 script:
-  - npm run lint
   - npm run test:ci
   - npm run sonar
+  - npm run lint
   - npm run build
   - cd dist/portal
   - cp index.html 404.html
