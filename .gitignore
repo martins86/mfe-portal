@@ -38,6 +38,7 @@ coverage
 testem.log
 /typings
 .scannerwork
+.husky
 
 # System files
 .DS_Store
