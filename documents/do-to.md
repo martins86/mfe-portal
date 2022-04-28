@@ -2,16 +2,19 @@
 
 <br>
 
-- Criar branch feature/translate
-
-  - Adicionar Translate
+- tranlate todo o site
 
   https://github.com/ngx-translate/core
   https://www.codeandweb.com/babeledit/tutorials/how-to-translate-your-angular-app-with-ngx-translate
   https://stackblitz.com/github/ngx-translate/example
-  https://www.youtube.com/watch?v=oxigDfDfD8Q&ab_channel=ScalableScripts
+  https://www.youtube.com/watch?v=oxigDfDfD8Q&ab_channel=ScalableScripts 7:15
 
-<br>
+- user-definitions - guarda no session-storage theme e translate (preenche no login e usa depois do login)
+- userDefinitions no guard canActivate do login
+
+- app-definitions - guarda no session-storage maintenance = off, theme e translate default (preenche no start é o padrão até o login)
+  if (userDefinitions) { } // else appDefinitions
+  <br>
 
 - Criar branch feature/login
   - login com firebase

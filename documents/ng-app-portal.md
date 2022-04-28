@@ -102,6 +102,26 @@ const routes: Routes = [
 ]
 ```
 
+## Criando a Shared com o components/select-language
+
+```sh
+ng g m shared/components/select-language
+
+ng g c shared/components/select-language
+```
+
+## Criando a service definitions com o services/service-definitions
+
+```sh
+ng g service shared/services/service-definitions/definitions
+```
+
+## Criando a service change theme com o services/service-theme/theme
+
+```sh
+ng g service shared/services/service-theme/theme
+```
+
 <br>
 <br>
 
