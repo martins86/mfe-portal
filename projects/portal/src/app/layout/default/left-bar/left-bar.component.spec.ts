@@ -1,6 +1,10 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core'
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RouterTestingModule } from '@angular/router/testing'
+
+import { ThemeService } from '../../../shared/services/service-theme/theme.service'
+import { TranslateStubModule } from '../../../__stubs__/translate-stub.module'
 
 import { DefaultModule } from '../default.module'
 
@@ -9,12 +13,21 @@ import { LeftBarComponent } from './left-bar.component'
 describe('LeftBarComponent', () => {
   let component: LeftBarComponent
   let fixture: ComponentFixture<LeftBarComponent>
+  let themeService: ThemeService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [LeftBarComponent],
-      imports: [DefaultModule, BrowserAnimationsModule, RouterTestingModule],
+      imports: [
+        DefaultModule,
+        BrowserAnimationsModule,
+        RouterTestingModule,
+        TranslateStubModule,
+      ],
+      providers: [ThemeService],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents()
+    themeService = TestBed.inject(ThemeService)
   })
 
   beforeEach(() => {
@@ -31,10 +44,8 @@ describe('LeftBarComponent', () => {
     it('should call toggleThemes', () => {
       // Arrange
       jest.spyOn(component, 'toggleThemes')
-
       // Act
       component.ngOnInit()
-
       // Assert
       expect(component.toggleThemes).toHaveBeenCalled()
     })
@@ -44,10 +55,8 @@ describe('LeftBarComponent', () => {
     it('should emit emitCloseLeftBar', () => {
       // Arrange
       jest.spyOn(component.emitCloseLeftBar, 'emit')
-
       // Act
       component.closeLeftBar()
-
       // Assert
       expect(component.emitCloseLeftBar.emit).toHaveBeenCalled()
       expect(component.emitCloseLeftBar.emit).toHaveBeenCalledWith(
@@ -57,56 +66,81 @@ describe('LeftBarComponent', () => {
   })
 
   describe('Testing toggleThemes', () => {
-    it('should receive toggleControl true and set darkClassName', () => {
+    it('should call toggleThemes', () => {
       // Arrange
-      const darkClassName = 'dark-theme'
-      component.toggleControl.setValue(true)
+      const spy = jest.spyOn(themeService, 'toggleThemes')
 
       // Act
       component.toggleThemes()
 
       // Assert
-      expect(document.body.classList.toString()).toEqual(darkClassName)
+      expect(spy).toHaveBeenCalledTimes(1)
+      spy.mockRestore()
     })
 
-    it('should receive toggleControl false and set lightClassName', () => {
+    it('should call getThemeSession and return the theme', () => {
       // Arrange
-      const lightClassName = 'light-theme'
-      component.toggleControl.setValue(false)
+      const spy = jest.spyOn(themeService, 'getThemeSession')
 
       // Act
       component.toggleThemes()
 
       // Assert
-      expect(document.body.classList.toString()).toEqual(lightClassName)
-    })
-  })
-
-  describe('Testing switchClass', () => {
-    it('should remove "light-theme" and add "dark-theme"', () => {
-      // Arrange
-      const darkClassName = 'dark-theme'
-      const lightClassName = 'light-theme'
-
-      // Act
-      component.switchClass(darkClassName, lightClassName)
-
-      // Assert
-      expect(document.body.classList.toString()).toEqual(darkClassName)
-      expect(document.body.classList.toString()).not.toEqual(lightClassName)
+      expect(spy).toHaveBeenCalledTimes(1)
+      expect(spy).toHaveReturnedWith('light-theme')
+      spy.mockRestore()
     })
 
-    it('should remove "dark-theme" and add "light-theme"', () => {
+    it('should set className theme "light-theme"', () => {
       // Arrange
-      const darkClassName = 'dark-theme'
-      const lightClassName = 'light-theme'
+      const spy = jest
+        .spyOn(themeService, 'getThemeSession')
+        .mockReturnValue('light-theme')
 
       // Act
-      component.switchClass(lightClassName, darkClassName)
+      component.toggleThemes()
 
       // Assert
-      expect(document.body.classList.toString()).toEqual(lightClassName)
-      expect(document.body.classList.toString()).not.toEqual(darkClassName)
+      expect(component.className).toBe('light-theme')
+    })
+
+    it('should set className theme "dark-theme"', () => {
+      // Arrange
+      const spy = jest
+        .spyOn(themeService, 'getThemeSession')
+        .mockReturnValue('dark-theme')
+
+      // Act
+      component.toggleThemes()
+
+      // Assert
+      expect(component.className).toBe('dark-theme')
+    })
+
+    it('should set value toggleControl false for theme "light-theme"', () => {
+      // Arrange
+      const spy = jest
+        .spyOn(themeService, 'getThemeSession')
+        .mockReturnValue('light-theme')
+
+      // Act
+      component.toggleThemes()
+
+      // Assert
+      expect(component.toggleControl.value).toBe(false)
+    })
+
+    it('should set value toggleControl true for theme "dark-theme"', () => {
+      // Arrange
+      const spy = jest
+        .spyOn(themeService, 'getThemeSession')
+        .mockReturnValue('dark-theme')
+
+      // Act
+      component.toggleThemes()
+
+      // Assert
+      expect(component.toggleControl.value).toBe(true)
     })
   })
 })

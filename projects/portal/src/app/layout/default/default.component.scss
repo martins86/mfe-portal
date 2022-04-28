@@ -5,14 +5,10 @@
 }
 
 mat-drawer-container {
-  height: calc(100vh - 124px);
+  height: calc(100vh - 97px);
 
   mat-drawer {
     width: 300px;
-  }
-
-  mat-drawer-content {
-    color: var(--text-primary-lighter-color);
   }
 }
 

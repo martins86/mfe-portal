@@ -1,7 +1,9 @@
 <nav role="navigation">
   <mat-nav-list>
     <mat-list role="list">
-      <h3 mat-subheader color="accent">Páginas</h3>
+      <h3 mat-subheader color="accent">
+        {{ 'layout.left_bar.text_label_bar.pages' | translate }}
+      </h3>
       <mat-list-item
         [routerLink]="['/']"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -11,15 +13,21 @@
         <mat-icon mat-list-icon aria-hidden="false" aria-label="ícone home"
           >home</mat-icon
         >
-        <div mat-line>Dashboard</div>
+        <div mat-line>
+          {{ 'layout.left_bar.text_menu_pages.page_dashboard' | translate }}
+        </div>
       </mat-list-item>
     </mat-list>
   </mat-nav-list>
 
   <mat-list role="list">
-    <h3 mat-subheader>Tema</h3>
+    <h3 mat-subheader>
+      {{ 'layout.left_bar.text_label_bar.theme' | translate }}
+    </h3>
     <mat-list-item role="listitem">
-      <h5 mat-line>Light/Dark</h5>
+      <h5 mat-line>
+        {{ 'layout.left_bar.text_label_bar.theme_options' | translate }}
+      </h5>
       <div
         class="w-50 d-flex flex-row justify-content-between align-items-center"
       >
@@ -31,4 +39,11 @@
       </div>
     </mat-list-item>
   </mat-list>
+
+  <div class="w-100 p-1 text-align-right position-absolute bottom-0 text-end">
+    <h5 class="m-0 pe-2 fst-italic">
+      {{ 'layout.left_bar.text_label_bar.version_app' | translate }}:
+      {{ versionApp }}
+    </h5>
+  </div>
 </nav>

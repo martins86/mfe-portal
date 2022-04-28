@@ -31,7 +31,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/portal/src/favicon.ico",
-              "projects/portal/src/assets"
+              "projects/portal/src/assets",
+              "projects/portal/src/assets/i18n"
             ],
             "styles": ["projects/portal/src/styles.scss"],
             "scripts": []

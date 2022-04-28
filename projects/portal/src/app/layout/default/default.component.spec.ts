@@ -1,9 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 import { RouterTestingModule } from '@angular/router/testing'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+import { TranslateStubModule } from '../../__stubs__/translate-stub.module'
+
 import { DefaultModule } from './default.module'
 import { DefaultComponent } from './default.component'
+import { NO_ERRORS_SCHEMA } from '@angular/core'
 
 describe('DefaultComponent', () => {
   let component: DefaultComponent
@@ -12,7 +16,14 @@ describe('DefaultComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [DefaultComponent],
-      imports: [DefaultModule, BrowserAnimationsModule, RouterTestingModule],
+      imports: [
+        DefaultModule,
+        BrowserAnimationsModule,
+        RouterTestingModule,
+        HttpClientTestingModule,
+        TranslateStubModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents()
   })
 
@@ -32,20 +43,8 @@ describe('DefaultComponent', () => {
       expect(component.leftBarOpen).toBe(false)
     })
 
-    it('should the leftBarOpen value be equal to false', () => {
-      // Arrange
-      component.leftBarOpen = true
-
-      // Act
-      component.toggleLeftBar()
-
-      // Assert
-      expect(component.leftBarOpen).toBe(false)
-    })
-
     it('should the leftBarOpen value be equal to true', () => {
-      // Arrange
-      component.leftBarOpen = false
+      expect(component.leftBarOpen).toBe(false)
 
       // Act
       component.toggleLeftBar()
@@ -53,12 +52,25 @@ describe('DefaultComponent', () => {
       // Assert
       expect(component.leftBarOpen).toBe(true)
     })
+
+    it('should the leftBarOpen value be equal to false', () => {
+      // Arrange
+      component.leftBarOpen = true
+      expect(component.leftBarOpen).toBe(true)
+
+      // Act
+      component.toggleLeftBar()
+
+      // Assert
+      expect(component.leftBarOpen).toBe(false)
+    })
   })
 
   describe('Testing closeLeftBar', () => {
     it('should the leftBarOpen value be equal to false', () => {
       // Arrange
       component.leftBarOpen = true
+      expect(component.leftBarOpen).toBe(true)
 
       // Act
       component.closeLeftBar()
@@ -70,6 +82,7 @@ describe('DefaultComponent', () => {
     it('should the value of leftBarOpen remain equal to false', () => {
       // Arrange
       component.leftBarOpen = false
+      expect(component.leftBarOpen).toBe(false)
 
       // Act
       component.closeLeftBar()

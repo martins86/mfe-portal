@@ -9,7 +9,7 @@ import { Component } from '@angular/core'
     <div class="row">
       <div class="col d-flex align-items-end">
         <p class="text-end" style="color: var(--text-accent-color)">
-          ERRO 404!! - Conteúdo não encontrado.
+          {{ 'pages.not_found.text_error_404' | translate }}
         </p>
       </div>
     </div>

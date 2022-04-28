@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http'
 
+import { TranslateModule } from '@ngx-translate/core'
+
 import { DefaultRoutingModule } from './default-routing.module'
 import { DefaultComponent } from './default.component'
 
@@ -32,8 +34,13 @@ const layoutComponents = [TopBarComponent, LeftBarComponent, BottomBarComponent]
 
 import { MaintenanceModule } from '../../pages/maintenance/maintenance.module'
 import { NotFoundModule } from '../../pages/not-found/not-found.module'
+import { DashboardModule } from '../../pages/dashboard/dashboard.module'
 
 const pagesModules = [MaintenanceModule, NotFoundModule]
+
+import { SelectLanguageModule } from '../../shared/components/select-language/select-language.module'
+
+const componentsModules = [SelectLanguageModule]
 
 @NgModule({
   declarations: [DefaultComponent, ...layoutComponents],
@@ -42,8 +49,11 @@ const pagesModules = [MaintenanceModule, NotFoundModule]
     RouterModule,
     HttpClientModule,
     DefaultRoutingModule,
+    TranslateModule.forChild(),
     ...materialModules,
+    ...componentsModules,
     ...pagesModules,
+    DashboardModule,
   ],
 })
 export class DefaultModule {}
