@@ -5,7 +5,10 @@ os: linux
 node_js:
   - 17
 
-dist: trusty
+dist: xenial
+
+services:
+  - xvfb
 
 cache:
   yarn: true
@@ -19,7 +22,6 @@ install:
 before_install:
   - export DISPLAY=:99.0
   - export NODE_OPTIONS=--openssl-legacy-provider
-  - sh -e /etc/init.d/xvfb start
 
 script:
   - npm run lint
@@ -53,5 +55,6 @@ deploy:
   cleanup: true
   github_token: $GITHUB_TOKEN_TRAVIS
   local_dir: dist/portal
+  keep_history: true
   on:
     branch: master
