@@ -61,7 +61,7 @@ env:
 
 deploy:
   provider: pages
-  skip_cleanup: true
+  cleanup: true
   github_token: $GITHUB_TOKEN_TRAVIS
   local_dir: dist/portal
   on:
