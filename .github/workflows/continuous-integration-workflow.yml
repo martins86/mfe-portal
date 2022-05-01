@@ -1,28 +1,29 @@
-name: Portal CI/CD - Github Actions e Pages
+name: Portal CI/CD
+
 on:
   push:
-    branches:
-      - master
-      - add-gh-actions
+    branches: [ master, add-gh-actions ]
+
 jobs:
   portal-ci:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [17.x]
+        node-version: [16.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
       - name: Cache node modules
         id: cache-nodemodules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -38,18 +39,34 @@ jobs:
         run: |
           npm install
 
+      - name: CI
+        if: success()
+        run: |
+          npm run ci
+
       - name: Build CI
+        if: success()
         run: |
           npm run build:ci
 
       - name: Lint
+        if: success()
         run: |
           npm run lint
 
       - name: Test Unit
+        if: success()
         run: |
           npm run test:ci
 
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v1
+        with:
+          name: deploy_dist
+          path: dist
+
       - name: Deploy in GH Pages
+        if: success()
         run: |
           npm run ng -- deploy --base-href=/mfe-portal/ --message="Deploy portal in gh-pages (Portal CI/CD)" --no-silent
