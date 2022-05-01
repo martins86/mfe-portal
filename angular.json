@@ -98,7 +98,12 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://martins86.github.io/mfe-portal/",
+            "name": "Thiago Martins de Freitas",
+            "email": "martins86@gmail.com"
+          }
         }
       }
     }
