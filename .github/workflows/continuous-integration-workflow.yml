@@ -2,7 +2,6 @@ name: Portal CI/CD - Github Actions e Pages
 on:
   push:
     branches:
-      - master
       - add-gh-actions
 jobs:
   ci:
@@ -10,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x, 17.x]
+        node-version: [17.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -32,6 +31,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
@@ -48,23 +48,6 @@ jobs:
       - name: Test Unit
         run: |
           npm run test:ci
-
-      - name: Conventional Changelog Action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          output-file: 'false'
-
-      # - name: Create Release
-      #   uses: actions/create-release@v1
-      #   if: ${{ steps.changelog.outputs.skipped == 'false' }}
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     tag_name: ${{ steps.changelog.outputs.tag }}
-      #     release_name: ${{ steps.changelog.outputs.tag }}
-      #     body: ${{ steps.changelog.outputs.clean_changelog }}
 
       - name: Deploy
         run: |
