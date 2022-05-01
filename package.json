@@ -21,7 +21,7 @@
     "release": "standard-version",
     "test:dev": "npm run test -- -o --watch --verbose",
     "sonar": "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed",
-    "deploy": "ng deploy --base-href=https://martins86.github.io/mfe-portal/ --name=\"Thiago M. de Freitas\" --email=martins86@gmail.com --no-silent"
+    "deploy": "ng deploy --base-href=https://martins86.github.io/mfe-portal/ --name=\"martins86\" --email=martins86@gmail.com --message=\"Deploy portal in gh-pages (auto)\"--no-silent"
   },
   "private": true,
   "dependencies": {
