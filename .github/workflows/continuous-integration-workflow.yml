@@ -2,6 +2,7 @@ name: Portal CI/CD - Github Actions e Pages
 on:
   push:
     branches:
+      - master
       - add-gh-actions
 jobs:
   ci:
