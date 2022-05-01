@@ -5,7 +5,7 @@ on:
       - master
       - add-gh-actions
 jobs:
-  ci:
+  portal-ci:
     runs-on: ubuntu-latest
 
     strategy:
@@ -50,6 +50,6 @@ jobs:
         run: |
           npm run test:ci
 
-      - name: Deploy
+      - name: Deploy in GH Pages
         run: |
-          npm run deploy
+          npm run ng -- deploy --base-href=/mfe-portal/ --name="martins86" --email="martins86@gmail.com" --message="Deploy portal in gh-pages (auto)" --no-silent
