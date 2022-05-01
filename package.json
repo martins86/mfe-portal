@@ -21,7 +21,7 @@
     "release": "standard-version",
     "test:dev": "npm run test -- -o --watch --verbose",
     "sonar": "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed",
-    "deploy": "ng deploy --base-href=/mfe-portal/ --message=\"Deploy portal in gh-pages (auto)\" --no-silent"
+    "deploy": "ng deploy --message=\"Deploy portal in gh-pages (auto)\" --no-silent"
   },
   "private": true,
   "dependencies": {
