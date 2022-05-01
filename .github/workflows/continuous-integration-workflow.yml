@@ -52,4 +52,4 @@ jobs:
 
       - name: Deploy in GH Pages
         run: |
-          npm run ng -- deploy --base-href=./ --name="martins86" --email="martins86@gmail.com" --message="Deploy portal in gh-pages (Portal CI/CD)" --no-silent
+          npm run ng -- deploy --base-href=https://martins86.github.io/mfe-portal/ --name="martins86" --email="martins86@gmail.com" --message="Deploy portal in gh-pages (Portal CI/CD)" --no-silent
