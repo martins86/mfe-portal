@@ -23,17 +23,17 @@ jobs:
         run: |
           npm install
 
-      - name: Build
-        run: |
-          npm run build:ci
-
       - name: Lint
         run: |
           npm run lint
 
-      - name: Test
+      - name: Test Unit
         run: |
           npm run test:ci
+
+      - name: Build CI
+        run: |
+          npm run build:ci
 
       - name: Conventional Changelog Action
         id: changelog
