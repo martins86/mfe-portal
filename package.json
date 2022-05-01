@@ -20,8 +20,7 @@
     "commit": "git-cz",
     "release": "standard-version",
     "test:dev": "npm run test -- -o --watch --verbose",
-    "sonar": "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed",
-    "deploy": "ng deploy --message=\"Deploy portal in gh-pages (auto)\" --no-silent"
+    "sonar": "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed"
   },
   "private": true,
   "dependencies": {
