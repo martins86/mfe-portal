@@ -2,7 +2,7 @@ name: Portal CI/CD
 
 on:
   push:
-    branches: [master, add-gh-actions]
+    branches: [add-gh-actions]
 
 jobs:
   portal-ci:
@@ -62,10 +62,6 @@ jobs:
           name: deploy_dist
           path: dist
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Checkout
         if: success()
         uses: actions/checkout@v3
