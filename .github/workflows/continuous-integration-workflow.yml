@@ -2,7 +2,7 @@ name: Portal CI/CD
 
 on:
   push:
-    branches: [add-gh-actions]
+    branches: [ master, add-gh-actions ]
 
 jobs:
   portal-ci:
@@ -13,7 +13,6 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - name: Checkout
       - uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
@@ -34,42 +33,34 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
           npm install
-
       - name: Build CI
         if: success()
         run: |
           npm run build:ci
-
       - name: Lint
         if: success()
         run: |
           npm run lint
-
       - name: Test Unit
         if: success()
         run: |
           npm run test:ci
-
       - name: Archive build
         if: success()
         uses: actions/upload-artifact@v1
         with:
           name: deploy_dist
           path: dist
-
-      - name: Checkout
-        if: success()
-        uses: actions/checkout@v3
       - name: Download build
         if: success()
         uses: actions/download-artifact@v1
         with:
           name: deploy_dist
+
       - name: Deploy to GitHub Pages
         if: success()
         uses: JamesIves/github-pages-deploy-action@releases/v3
