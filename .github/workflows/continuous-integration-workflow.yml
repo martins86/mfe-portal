@@ -57,15 +57,10 @@ jobs:
         run: |
           npm run test:ci
 
-      - name: SonarCloud Scan
+      - name: SonarCloud
         if: success()
-        uses: SonarSource/sonarcloud-github-action@v1.6
-        with:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          # Additional arguments to the sonarcloud scanner
-          # args: # optional
-          # Set the sonar.projectBaseDir analysis property
-          projectBaseDir: . # optional, default is .
+        run: |
+          npm run sonar
 
       - name: Archive build
         if: success()
