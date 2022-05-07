@@ -2,7 +2,7 @@ name: Portal CI/CD
 
 on:
   push:
-    branches: [ master, add-gh-actions ]
+    branches: [master, add-gh-actions]
 
 jobs:
   portal-ci:
