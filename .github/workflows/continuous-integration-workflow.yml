@@ -42,7 +42,7 @@ jobs:
       - name: Build CI
         if: success()
         run: |
-          npm run build:ci
+          npm run build:ci && cp dist/mfe-portal/index.html dist/mfe-portal/404.html
 
       - name: Lint
         if: success()
@@ -71,6 +71,5 @@ jobs:
         if: success()
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: mfe-portal/dist/mfe-portal
+          folder: mfe-portal
