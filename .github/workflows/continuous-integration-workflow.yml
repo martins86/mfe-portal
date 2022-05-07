@@ -37,7 +37,7 @@ jobs:
       - name: Install and Build CI
         if: success()
         run: |
-          npm install && npm run build:ci && cp dist/mfe-portal/portal/index.html dist/mfe-portal/portal/404.html
+          npm install && npm run build:ci
 
       - name: Lint
         if: success()
