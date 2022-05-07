@@ -2,13 +2,9 @@ name: Portal CI/CD
 
 on:
   push:
-    branches:
-      - master
-      - add-gh-actions
+    branches: [master, add-gh-actions]
   pull_request:
-    branches:
-      - master
-      - add-gh-actions
+    branches: [master, add-gh-actions]
 
 jobs:
   portal-ci:
@@ -42,7 +38,28 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - name: Install Dependencies
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: |
+          npm install
+
+      - name: Build CI
+        if: success()
+        run: |
+          npm run build:ci
+
+      - name: Lint
+        if: success()
+        run: |
+          npm run lint
+
+      - name: Test Unit
+        if: success()
+        run: |
+          npm run test:ci
+
       - name: SonarCloud Scan
+        if: success()
         uses: SonarSource/sonarcloud-github-action@v1.6
         with:
           # Additional arguments to the sonarcloud scanner
@@ -50,35 +67,18 @@ jobs:
           # Set the sonar.projectBaseDir analysis property
           projectBaseDir: . # optional, default is .
 
-      - name: Install Dependencies
-        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
-        run: |
-          npm install
-      - name: Build CI
-        if: success()
-        run: |
-          npm run build:ci
-      - name: Lint
-        if: success()
-        run: |
-          npm run lint
-      - name: Test Unit
-        if: success()
-        run: |
-          npm run test:ci
-
       - name: Archive build
         if: success()
         uses: actions/upload-artifact@v1
         with:
-          name: mfe-portal
+          name: build
           path: dist
 
       - name: Download build
         if: success()
         uses: actions/download-artifact@v1
         with:
-          name: mfe-portal
+          name: build
 
       - name: Deploy to GitHub Pages
         if: success()
@@ -86,4 +86,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: mfe-portal
+          FOLDER: build
