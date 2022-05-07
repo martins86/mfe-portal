@@ -2,9 +2,17 @@ name: Portal CI/CD
 
 on:
   push:
-    branches: [master, add-gh-actions]
+    branches:
+      - master
+      - add-gh-actions
   pull_request:
-    branches: [master, add-gh-actions]
+    branches:
+      - master
+      - add-gh-actions
+    paths-ignore:
+      - '.gitignore'
+      - '.npmignore'
+      - '*.md'
 
 jobs:
   portal-ci:
@@ -16,6 +24,7 @@ jobs:
         # [12.x, 14.x, 16.x]
 
     steps:
+      - name: Checkout repository
       - uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
@@ -42,6 +51,7 @@ jobs:
         # uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
         uses: SonarSource/sonarcloud-github-action@v1.6
         with:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           # Additional arguments to the sonarcloud scanner
           # args: # optional
           # Set the sonar.projectBaseDir analysis property
