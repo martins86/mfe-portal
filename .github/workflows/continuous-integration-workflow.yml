@@ -34,13 +34,9 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install Dependencies
-        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
-        run: |
-          npm install
-
-      - name: Build CI
+      - name: Install and Build CI
         if: success()
+        working-directory: ./mfe-portal
         run: |
           npm run build:ci && cp dist/mfe-portal/index.html dist/mfe-portal/404.html
 
