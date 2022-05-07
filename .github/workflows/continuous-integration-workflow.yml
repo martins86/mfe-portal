@@ -57,10 +57,24 @@ jobs:
         run: |
           npm run test:ci
 
-      - name: SonarCloud
-        if: success()
-        run: |
-          npm run sonar
+      - name: Analyze with SonarCloud
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=martins86
+            -Dsonar.projectKey=martins86_mfe-portal
+            -Dsonar.sourceEncoding=UTF-8
+            -Dssonar.sources=.
+            -Dssonar.exclusions=**/node_modules/**,**/__mocks__/**,**/__stubs__/****/*.js
+            -Dssonar.coverage.exclusions=**/*.js,**/src/main.ts,**/src/polyfills.ts,**/*environment*.ts,**/*module.ts,**/jest.config.ts
+            -Dssonar.tests=./projects/portal/src
+            -Dssonar.test.inclusions=**/*.spec.ts,**/*test.ts
+            -Dssonar.typescript.tsconfigPath=tsconfig.json
+            -Dssonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.verbose=true
 
       - name: Archive build
         if: success()
