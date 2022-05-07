@@ -33,6 +33,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
@@ -49,17 +50,19 @@ jobs:
         if: success()
         run: |
           npm run test:ci
+
       - name: Archive build
         if: success()
         uses: actions/upload-artifact@v1
         with:
-          name: deploy_dist
+          name: mfe-portal
           path: dist
+
       - name: Download build
         if: success()
         uses: actions/download-artifact@v1
         with:
-          name: deploy_dist
+          name: mfe-portal
 
       - name: Deploy to GitHub Pages
         if: success()
@@ -67,4 +70,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: deploy_dist/mfe-portal/
+          FOLDER: mfe-portal
