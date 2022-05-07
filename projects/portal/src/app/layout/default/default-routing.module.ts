@@ -9,11 +9,12 @@ const routes: Routes = [
     component: DefaultComponent,
     children: [
       {
-        path: 'dashboard',
+        path: '',
         loadChildren: () =>
           import('./../../pages/dashboard/dashboard.module').then(
             (module) => module.DashboardModule
           ),
+        pathMatch: 'full',
       },
       {
         path: 'maintenance',
@@ -21,11 +22,6 @@ const routes: Routes = [
           import('./../../pages/maintenance/maintenance.module').then(
             (module) => module.MaintenanceModule
           ),
-      },
-      {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full',
       },
       {
         path: '**',
