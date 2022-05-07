@@ -9,10 +9,6 @@ on:
     branches:
       - master
       - add-gh-actions
-    paths-ignore:
-      - '.gitignore'
-      - '.npmignore'
-      - '*.md'
 
 jobs:
   portal-ci:
