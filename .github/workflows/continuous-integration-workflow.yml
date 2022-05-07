@@ -33,22 +33,18 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
       - name: Install Dependencies
         if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         run: |
           npm install
-
       - name: Build CI
         if: success()
         run: |
           npm run build:ci
-
       - name: Lint
         if: success()
         run: |
           npm run lint
-
       - name: Test Unit
         if: success()
         run: |
@@ -74,14 +70,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: mfe-portal
-
-      - name: Deploy to GitHub Pages
-        if: success()
-        uses: chabad360/hugo-gh-pages@v2
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          #cname: # optional
-          # The branch to push the built site to
-          branch: gh-pages
-          # repo: # optional
-          # siteDir: # optional
