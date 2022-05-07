@@ -57,17 +57,3 @@ jobs:
         with:
           name: mfe-portal
           path: dist
-
-      - name: Download build
-        if: success()
-        uses: actions/download-artifact@v1
-        with:
-          name: mfe-portal
-
-      - name: Deploy to GitHub Pages
-        if: success()
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: mfe-portal
