@@ -37,7 +37,7 @@ jobs:
       - name: Install and Build CI
         if: success()
         run: |
-          npm install && npm run build:gh --configuration production && cp dist/portal/index.html dist/portal/404.html
+          npm install && npm run build:gh && cp dist/portal/index.html dist/portal/404.html
 
       - name: Lint
         if: success()
