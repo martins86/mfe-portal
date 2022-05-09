@@ -62,16 +62,10 @@ jobs:
         with:
           name: mfe-portal
 
-      # - name: Deploy to GitHub Pages
-      #   if: success()
-      #   uses: JamesIves/github-pages-deploy-action@4.1.1
-      #   with:
-      #     branch: gh-pages
-      #     folder: dist/portal
-
-      - name: Deploy to GitHub Pages
+      - name: Preper and deploy on GitHub Pages
         if: success()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          npm install
           npm run deploy:gh -- --name="martins86" --email="martins86@gmail.com" --no-silent
