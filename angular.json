@@ -66,27 +66,6 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
-            },
-            "github": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "4mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "projects/portal/src/environments/environment.ts",
-                  "with": "projects/portal/src/environments/environment.github.ts"
-                }
-              ],
-              "outputHashing": "all"
             }
           },
           "defaultConfiguration": "production"

@@ -37,7 +37,7 @@ jobs:
       - name: Install and Build CI
         if: success()
         run: |
-          npm install && npm run build:gh && cp dist/portal/index.html dist/portal/404.html
+          npm install && npm run build:ci
 
       - name: Lint
         if: success()
@@ -62,9 +62,14 @@ jobs:
         with:
           name: mfe-portal
 
+      # - name: Deploy to GitHub Pages
+      #   if: success()
+      #   uses: JamesIves/github-pages-deploy-action@4.1.1
+      #   with:
+      #     branch: gh-pages
+      #     folder: dist/portal
+
       - name: Deploy to GitHub Pages
         if: success()
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: gh-pages
-          folder: dist/portal
+        run: |
+          npm run deploy:gh

@@ -4,9 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --project=portal --port=5000 --host=0.0.0.0 --disable-host-check --open",
-    "build": "ng build --project=portal",
-    "build:ci": "npm run build -- --base-href ./ --output-hashing=none --vendor-chunk=false --aot",
-    "build:gh": "npm run build:ci -- --base-href /mfe-portal/ --build-optimizer --optimization --configuration github",
+    "build": "ng build --project=portal --build-optimizer --optimization --output-hashing=none",
+    "build:ci": "npm run build -- --base-href ./ --vendor-chunk=false --aot",
     "build:gzip": "npm run build -- && tar -zcvf portal.tar.gz dist/portal/*",
     "build:stats": "ng build --stats-json",
     "watch": "ng build --watch --configuration development",
@@ -21,7 +20,8 @@
     "commit": "git-cz",
     "release": "standard-version",
     "test:dev": "npm run test -- -o --watch --verbose",
-    "sonar": "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed"
+    "sonar": "sonar-scanner -Dsonar.login=57a82ee65a2f2a92c020e8b73d717c12a36763ed",
+    "deploy:gh": "ng deploy --base-href=/mfe-portal/"
   },
   "private": true,
   "dependencies": {
