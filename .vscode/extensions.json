@@ -17,6 +17,7 @@
     "tabnine.tabnine-vscode",
     "orta.vscode-jest",
     "ferrierbenjamin.fold-unfold-all-icone",
-    "github.vscode-github-actions"
+    "github.vscode-github-actions",
+    "techer.open-in-browser"
   ]
 }
