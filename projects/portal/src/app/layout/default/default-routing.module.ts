@@ -14,6 +14,7 @@ const routes: Routes = [
           import('./../../pages/dashboard/dashboard.module').then(
             (module) => module.DashboardModule
           ),
+        pathMatch: 'full',
       },
       {
         path: 'maintenance',

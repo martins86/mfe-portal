@@ -16,6 +16,8 @@
     "shardulm94.trailing-spaces",
     "tabnine.tabnine-vscode",
     "orta.vscode-jest",
-    "FerrierBenjamin.fold-unfold-all-icone"
+    "ferrierbenjamin.fold-unfold-all-icone",
+    "github.vscode-github-actions",
+    "techer.open-in-browser"
   ]
 }
